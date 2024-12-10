@@ -1,6 +1,11 @@
 extends Node
 
+const LEVELOFFSET = -3
+
 var money = 0
+var selected_level = LEVELOFFSET
+var current_level = LEVELOFFSET
+var linear = true
 
 #NOTE This class is our game manager and handles the players money and loading scenes
 #These functions can be called globally from anywhere
@@ -16,3 +21,7 @@ func load_next_level(next_scene : PackedScene):
 
 func load_same_level():
 	get_tree().reload_current_scene()
+	
+func change_level(level : int):
+	selected_level = level
+	

@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://cauir8lsls21e"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/BigDecision.gd" id="1_8dkr1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtf74"]
+font_size = 66
+
+[node name="BigDecision" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8dkr1")
+
+[node name="Title" type="Label" parent="."]
+offset_left = 76.0
+offset_top = 5.0
+offset_right = 567.0
+offset_bottom = 96.0
+text = "Big Decisions"
+label_settings = SubResource("LabelSettings_rtf74")
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="."]
+offset_left = 37.0
+offset_top = 96.0
+offset_right = 625.0
+offset_bottom = 327.0
+text = "Prominent decisions with serious irreversible consequences
+Games like Telltale's The Walking Dead emphasize Big Decisions but often have reflective choices
+Advantages of this agency type is that it is: Explicit, dramatic, fits ethical discussions
+Some pitfalls: Hard to follow up, may feel like false promises, often boil down to binary choices
+Multiple endings seen as ultimate agency but focus should be on process rather than closure
+"
+autowrap_mode = 2
+
+[node name="ContinueLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 334.0
+offset_right = 423.0
+offset_bottom = 357.0
+text = "Click to continue"
+horizontal_alignment = 1
+
+[node name="OmnipotenceButton" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 92.0
+offset_top = 213.0
+offset_right = 267.0
+offset_bottom = 297.0
+text = "Become Omnipotent
+(Level Select)"
+
+[node name="NormalButton" type="Button" parent="."]
+visible = false
+offset_left = 367.0
+offset_top = 215.0
+offset_right = 535.0
+offset_bottom = 295.0
+text = "Stay Human
+(Progress Linearly)"
