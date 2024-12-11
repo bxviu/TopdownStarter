@@ -20,6 +20,10 @@ var goToNext = false
 func _ready():
 	continue_label.text = "Click to continue: 1/" + str(len(narrative_texts))
 	big.hide()
+	title.modulate = GameManager.textColor
+	narrative_label.modulate = GameManager.textColor
+	continue_label.modulate = GameManager.textColor	
+	big.modulate = GameManager.textColor
 	# Show first text block
 	show_next_text()
 	

@@ -131,6 +131,7 @@ line1 = ["This is my zone", "Text #2 moment", "Please talk to someone else"]
 [node name="TouchZone" parent="NPCs/NPC" instance=ExtResource("4_8xm7n")]
 scale = Vector2(1.875, 1.875)
 zone_name = "NPC1"
+interactable = false
 
 [node name="NPC2" parent="NPCs" instance=ExtResource("3_5eb32")]
 position = Vector2(-394, -218)
@@ -139,6 +140,7 @@ line1 = ["What's up", "Don't mind me", "This little area was made for me!"]
 [node name="TouchZone" parent="NPCs/NPC2" instance=ExtResource("4_8xm7n")]
 scale = Vector2(1.815, 1.815)
 zone_name = "NPC2"
+interactable = false
 
 [node name="NPC3" parent="NPCs" instance=ExtResource("3_5eb32")]
 position = Vector2(-290, 190)
@@ -147,6 +149,7 @@ line1 = ["That's me in the corner", "That's me in the spotlight", "Losing my rel
 [node name="TouchZone" parent="NPCs/NPC3" instance=ExtResource("4_8xm7n")]
 scale = Vector2(1.835, 1.835)
 zone_name = "NPC3"
+interactable = false
 
 [node name="NPC4" parent="NPCs" instance=ExtResource("3_5eb32")]
 position = Vector2(206, 183)
@@ -155,6 +158,7 @@ line1 = ["The guy in the other corner keeps yapping", "Is he trying to sing some
 [node name="TouchZone" parent="NPCs/NPC4" instance=ExtResource("4_8xm7n")]
 scale = Vector2(1.85, 1.85)
 zone_name = "NPC4"
+interactable = false
 
 [node name="NPC5" parent="NPCs" instance=ExtResource("3_5eb32")]
 position = Vector2(392, -274)
@@ -164,6 +168,7 @@ line1 = ["Just doing my daily walk", "I must reach my step goal!!"]
 position = Vector2(0, -4.76837e-07)
 scale = Vector2(1.81, 1.81)
 zone_name = "NPC5"
+interactable = false
 
 [node name="NPC6" parent="NPCs" instance=ExtResource("3_5eb32")]
 position = Vector2(184, -241)
@@ -173,6 +178,7 @@ line1 = ["Pacing back and forth", "Weeewooo"]
 position = Vector2(0, -4.76837e-07)
 scale = Vector2(1.81, 1.81)
 zone_name = "NPC6"
+interactable = false
 
 [node name="SceneSettings" parent="." instance=ExtResource("5_to22d")]
 
@@ -258,11 +264,7 @@ libraries = {
 "": SubResource("AnimationLibrary_hhqc3")
 }
 
-[node name="TouchZone" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("4_8xm7n")]
+[node name="TouchZone" parent="." instance=ExtResource("4_8xm7n")]
 position = Vector2(-27, -52)
 zone_name = "Aesthetics"
 interactable = true
-path = "res://Scenes/Levels/Aesthetic/Aesthetic.tscn"
-parent = NodePath("../Player")
-
-[connection signal="interacted" from="TouchZone" to="." method="_on_touch_zone_interacted"]

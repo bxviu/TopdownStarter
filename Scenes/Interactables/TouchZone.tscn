@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcl6l7rqg4sc1"]
+[gd_scene load_steps=5 format=3 uid="uid://dcl6l7rqg4sc1"]
 
 [ext_resource type="Script" path="res://Scenes/Interactables/TouchZone.gd" id="1_ndi0b"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="2_4j5j4"]
+[ext_resource type="LabelSettings" uid="uid://1cnb4418rr7" path="res://Art/Fonts/pixelized_label_large.tres" id="3_mxplc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rqvhv"]
 radius = 49.0408
@@ -10,6 +12,24 @@ script = ExtResource("1_ndi0b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rqvhv")
+
+[node name="EtoInteract" type="Label" parent="."]
+visible = false
+offset_left = -67.0
+offset_top = -35.0
+offset_right = 73.0
+offset_bottom = -12.0
+text = "Press E to interact"
+label_settings = ExtResource("2_4j5j4")
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="."]
+offset_left = -43.0
+offset_top = -60.0
+offset_right = 44.0
+offset_bottom = -34.0
+label_settings = ExtResource("3_mxplc")
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

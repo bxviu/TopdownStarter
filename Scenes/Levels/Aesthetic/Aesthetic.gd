@@ -2,10 +2,9 @@ extends Control
 
 # Array of narrative text blocks
 var narrative_texts = [
-	"Exploratory agency is the freedom to roam and discover. It relies on a player’s ability to move through a space, take their time, and encounter things worth observing. This type of agency doesn’t require altering the environment—just the act of navigation and discovery is enough. However, exploration must feel purposeful; players need to understand where they’re going and how the layout connects. Random or arbitrary navigation undermines the experience.",
-	"For some players, exploration alone is rewarding—like uncovering every tile in Civilization before restarting. Others find exploration more engaging when tied to a purpose, such as searching for treasures, lore, or secrets. In both cases, exploratory agency enriches gameplay by fostering curiosity and the joy of discovery.",
-	"The next area will be an example of exploratory agency. There is not really a goal other than to walk around. Now back to the story!",
-	"You left the building after giving Joe his coins and answering his ultimatum. Now onto your daily walk!"
+	"Aesthetic agency involves personalizing the visual or identity aspects of a game, like choosing character appearances, colors, or decorations for a virtual space. It doesn’t affect the gameplay mechanics or story but offers players a chance to express themselves through choices like hairstyles or T-shirt colors. Players don’t expect these choices to change the game or influence the world significantly.",
+	"However, aesthetic choices can still be meaningful. They foster a sense of co-authorship, allowing players to invest in the game world on a personal level, even if the impact is purely visual. Often, the aesthetic options reflect the game’s boundaries, revealing the types of characters or environments players can interact with, thus shaping their connection to the game. In this way, aesthetics create a sense of ownership, even if that ownership is mostly illusory.",
+	"In this game, it provides you with an aesthetic choice when you change the color of the text that displays when talking about agency."
 ]
 
 # Current text index
@@ -15,11 +14,17 @@ var current_text_index = 0
 @onready var narrative_label = $InfoLabel
 @onready var continue_label = $ContinueLabel
 @onready var title = $Title
-@onready var big = $BigText
-
+signal popup_closed
+#
+#func _on_close_button_pressed():
+	## Emit the signal to notify the main scene
+	#emit_signal("popup_closed")
+	#
+	## Queue free the pop-up scene
+	#queue_free()
+	
 func _ready():
 	continue_label.text = "Click to continue: 1/" + str(len(narrative_texts))
-	big.hide()
 	title.modulate = GameManager.textColor
 	narrative_label.modulate = GameManager.textColor
 	continue_label.modulate = GameManager.textColor
@@ -28,7 +33,7 @@ func _ready():
 	
 	# Enable input processing
 	set_process_input(true)
-	
+
 func _input(event):
 	# Check for left mouse button click
 	if event is InputEventMouseButton:
@@ -54,9 +59,10 @@ func update_continue_label():
 	continue_label.visible = current_text_index <= narrative_texts.size()
 
 func on_narrative_complete():
+	continue_label.hide()
+	emit_signal("popup_closed")
+	
+	#_on_close_button_pressed()
 	# What to do when narrative ends
 	# For example, change to next scene
-	#GameManager.current_level = -3
-	#GameManager.selected_level = -2
-	#get_tree().change_scene_to_file("res://Scenes/Levels/LevelSelect.tscn")
-	get_tree().change_scene_to_file("res://Scenes/Levels/Exploratory/Exploratory.tscn")
+	#get_tree().change_scene_to_file("res://Scenes/Levels/Aesthetic/TextColorChanger.tscn")

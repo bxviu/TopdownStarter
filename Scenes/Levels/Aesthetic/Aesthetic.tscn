@@ -1,40 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://spo02d7dudfp"]
+[gd_scene load_steps=3 format=3 uid="uid://dw7yybxyw5hfx"]
 
-[ext_resource type="Script" path="res://Scenes/Levels/Weak Interactive/WeakInteractive.gd" id="1_ic6h4"]
+[ext_resource type="Script" path="res://Scenes/Levels/Aesthetic/Aesthetic.gd" id="1_ydv7l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rtf74"]
 font_size = 66
 
-[node name="WeakInteractive" type="Control"]
+[node name="Aesthetic" type="Control"]
 process_mode = 3
 z_index = 2
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_ic6h4")
+script = ExtResource("1_ydv7l")
 
 [node name="Title" type="Label" parent="."]
+layout_mode = 0
 offset_left = 58.0
 offset_top = 2.0
 offset_right = 595.0
 offset_bottom = 93.0
-text = "Weak Interactive"
+text = "Aesthetic"
 label_settings = SubResource("LabelSettings_rtf74")
 horizontal_alignment = 1
 
 [node name="InfoLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 37.0
 offset_top = 96.0
 offset_right = 625.0
 offset_bottom = 327.0
-text = "Prominent decisions with serious irreversible consequences
-Games like Telltale's The Walking Dead emphasize Big Decisions but often have reflective choices
-Advantages of this agency type is that it is: Explicit, dramatic, fits ethical discussions
-Some pitfalls: Hard to follow up, may feel like false promises, often boil down to binary choices
-Multiple endings seen as ultimate agency but focus should be on process rather than closure
-"
 autowrap_mode = 2
 
 [node name="ContinueLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 171.0
 offset_top = 334.0
 offset_right = 423.0
@@ -44,6 +41,9 @@ horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
-offset_right = 637.0
-offset_bottom = 362.0
+layout_mode = 0
+offset_left = -75.0
+offset_top = -52.0
+offset_right = 712.0
+offset_bottom = 414.0
 color = Color(0, 0, 0, 1)

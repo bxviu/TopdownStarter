@@ -5,37 +5,25 @@ extends Node2D
 var interacted = []
 
 @onready var popup_scene = preload("res://Scenes/Levels/Weak Interactive/WeakInteractive.tscn")
+var weakInteractiveShown = false
+var aestheticsShown = false
 
-func show_popup():
-	# Instance and add the popup scene
-	var popup = popup_scene.instantiate()
-	player.add_child(popup)
-	
-	# Pause the main scene
-	get_tree().paused = true
-	
-	# Connect to a custom signal from the popup to unpause and clean up
-	popup.connect("popup_closed", Callable(self, "_on_popup_closed"))
-
-func _on_popup_closed():
-	# Unpause the main scene
-	get_tree().paused = false
-
-func setup_animation():
-	if not animation_player.has_animation("move_area"):
-		animation_player.add_animation("move_area")
-		
-	## Add animation track
-	#var track_idx = animation_player.add_track(Animation.TYPE_VALUE)
-	#animation_player.track_set_path(track_idx, "../Area2D:position")
+#func show_popup():
+	## Instance and add the popup scene
+	#var popup = popup_scene.instantiate()
+	#player.add_child(popup)
+	#popup.position = Vector2(-320, -180)
+	#popup.z_index = 2
 	#
-	## Add animation keys
-	#animation_player.track_insert_key(track_idx, 0, Vector2(0, 0))
-	#animation_player.track_insert_key(track_idx, 1, Vector2(200, 200))
-	#animation_player.track_insert_key(track_idx, 2, Vector2(0, 0))
-	
-	# Set the animation to loop
-	animation_player.set_animation_loop("move_area", true)
+	## Pause the main scene
+	#get_tree().paused = true
+	#
+	## Connect to a custom signal from the popup to unpause and clean up
+	#popup.connect("popup_closed", Callable(self, "_on_popup_closed"))
+
+#func _on_popup_closed():
+	## Unpause the main scene
+	#get_tree().paused = false
 
 func play_looping_animation():
 	animation_player.get_animation("move_area").loop = true
@@ -45,6 +33,7 @@ func play_looping_animation():
 func _ready() -> void:
 	play_looping_animation()
 	GameManager.connect("interacted_with", Callable(self, "_on_interacted_with"))
+	GameManager.playerDash = true
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,7 +43,17 @@ func _process(delta: float) -> void:
 func _on_interacted_with(object: String):
 	if object not in interacted:
 		interacted.append(object)
-	if interacted.size() >= 2:
+	if !weakInteractiveShown and interacted.size() == 4:
 		print('done')
-		show_popup()
+		weakInteractiveShown = true
+		GameManager.show_popup("res://Scenes/Levels/Weak Interactive/WeakInteractive.tscn", player, Vector2(-320, -180))
 	
+func _on_touch_zone_interacted() -> void:
+	if (aestheticsShown):
+		GameManager.show_popup("res://Scenes/Levels/Aesthetic/TextColorChanger.tscn", player, Vector2(-320, -180))
+	else:
+		aestheticsShown = true;
+		GameManager.show_popup("res://Scenes/Levels/Aesthetic/Aesthetic.tscn", player, Vector2(-320, -180))
+		#await get_tree().create_timer(1).timeout
+		#print("showing")
+		#GameManager.show_popup("res://Scenes/Levels/Aesthetic/TextColorChanger.tscn", player, Vector2(-320, -180))

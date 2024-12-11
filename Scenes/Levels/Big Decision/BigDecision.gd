@@ -16,11 +16,15 @@ var current_text_index = 0
 @onready var continue_label = $ContinueLabel
 @onready var omnipotence_button = $OmnipotenceButton
 @onready var normal_button = $NormalButton
+@onready var title = $Title
 
 func _ready():
 	continue_label.text = "Click to continue: 1/" + str(len(narrative_texts))
 	omnipotence_button.hide()
 	normal_button.hide()
+	title.modulate = GameManager.textColor
+	narrative_label.modulate = GameManager.textColor
+	continue_label.modulate = GameManager.textColor
 	# Show first text block
 	show_next_text()
 	

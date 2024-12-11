@@ -15,6 +15,7 @@ var current_text_index = 0
 # Reference to the Label node
 @onready var narrative_label = $InfoLabel
 @onready var continue_label = $ContinueLabel
+@onready var title = $Title
 signal popup_closed
 
 func _on_close_button_pressed():
@@ -26,6 +27,9 @@ func _on_close_button_pressed():
 	
 func _ready():
 	continue_label.text = "Click to continue: 1/" + str(len(narrative_texts))
+	title.modulate = GameManager.textColor
+	narrative_label.modulate = GameManager.textColor
+	continue_label.modulate = GameManager.textColor
 	# Show first text block
 	show_next_text()
 	
