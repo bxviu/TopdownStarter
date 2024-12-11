@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	if !endingLevel and weakInteractiveShown and aestheticsShown and reflectiveShown:
 		endingLevel = true
 		await get_tree().create_timer(2).timeout
-		
+		get_tree().change_scene_to_file("res://Scenes/Levels/Intermission/Intermission.tscn")
 	pass
 	
 func _on_interacted_with(object: String):

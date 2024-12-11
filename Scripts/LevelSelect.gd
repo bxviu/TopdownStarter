@@ -69,5 +69,12 @@ func enter_level():
 			get_tree().change_scene_to_file("res://Scenes/Levels/Big Decision/BigDecision.tscn")
 		-1:
 			get_tree().change_scene_to_file("res://Scenes/Levels/Exploratory/ExploratoryInfo.tscn")
+		3:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Grasp/Grasp.tscn")
+		4:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Velocity/Velocity.tscn")
+		5:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Challenge/Challenge.tscn")
+			
 
 		
