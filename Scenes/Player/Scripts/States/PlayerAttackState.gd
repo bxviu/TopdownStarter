@@ -37,7 +37,7 @@ func deal_damage(enemy : EnemyMain):
 
 func _process(delta):
 	# Get all overlapping bodies
-	var overlapping_bodies = hitbox.get_overlapping_areas()
+	var overlapping_bodies = hitbox.get_overlapping_bodies()
 	#print(overlapping_bodies)
 	for body in overlapping_bodies:
 		if body.is_in_group("DamageBoost"):

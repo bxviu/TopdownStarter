@@ -356,7 +356,7 @@ bg_color = Color(0.0352941, 0.0156863, 0.00784314, 0.427451)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3w2an"]
 bg_color = Color(1, 0, 0, 1)
 
-[node name="DamageBoost" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "healthbar", "hit_particles")]
+[node name="DamageBoost" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "healthbar", "hit_particles") groups=["DamageBoost"]]
 top_level = true
 texture_filter = 1
 floor_stop_on_slope = false
@@ -365,6 +365,7 @@ script = ExtResource("1_kbg5f")
 sprite = NodePath("AnimatedSprite2D")
 healthbar = NodePath("ProgressBar")
 health = 75
+flipped_horizontal = null
 hit_particles = NodePath("AnimatedSprite2D/HitParticles")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
@@ -381,9 +382,9 @@ rotation = 0.0
 
 [node name="Hitboxes" type="Node2D" parent="AnimatedSprite2D"]
 
-[node name="area_hitbox" type="Area2D" parent="AnimatedSprite2D/Hitboxes" groups=["DamageBoost"]]
+[node name="area_hitbox" type="Area2D" parent="AnimatedSprite2D/Hitboxes"]
 
-[node name="hitboxShape" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/area_hitbox"]
+[node name="hitboxShape" type="CollisionShape2D" parent="AnimatedSprite2D/Hitboxes/area_hitbox" groups=["DamageBoost"]]
 shape = SubResource("CircleShape2D_tm8fg")
 
 [node name="TextureRect" type="TextureRect" parent="AnimatedSprite2D"]
