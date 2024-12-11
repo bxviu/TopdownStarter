@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4aaj27erbg4d"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Reflective/Reflective.gd" id="1_cx0f0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtf74"]
+font_size = 66
+
+[node name="Reflective" type="Control"]
+process_mode = 3
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_cx0f0")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 3.0
+offset_right = 608.0
+offset_bottom = 94.0
+text = "Reflective Choices"
+label_settings = SubResource("LabelSettings_rtf74")
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 96.0
+offset_right = 625.0
+offset_bottom = 327.0
+autowrap_mode = 2
+
+[node name="ContinueLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 334.0
+offset_right = 423.0
+offset_bottom = 357.0
+text = "Click to continue"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 637.0
+offset_bottom = 362.0
+color = Color(0, 0, 0, 1)

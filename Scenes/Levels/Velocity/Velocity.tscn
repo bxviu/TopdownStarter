@@ -1,0 +1,178 @@
+[gd_scene load_steps=17 format=4 uid="uid://cawwn3nq5xsax"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Grasp/Grasp.gd" id="1_8qrbs"]
+[ext_resource type="PackedScene" uid="uid://bvg5dny32iw0x" path="res://Scenes/Player/Player.tscn" id="2_ilqvw"]
+[ext_resource type="PackedScene" uid="uid://bvt7e871e6jeg" path="res://Scenes/NPC's/Enemy/Enemy.tscn" id="3_kj758"]
+[ext_resource type="PackedScene" uid="uid://bblpsy4fvi76f" path="res://Scenes/Interactables/Coin.tscn" id="4_0fde8"]
+[ext_resource type="PackedScene" uid="uid://ckp2r52hlcfxn" path="res://Scenes/NPC's/Npc_OfficeWorker/npc_officeworker_scene.tscn" id="4_k4pr7"]
+[ext_resource type="PackedScene" uid="uid://cx8kkqawojm0m" path="res://Scenes/Misc/SceneSettings.tscn" id="5_jehkl"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="6_lkfjj"]
+[ext_resource type="Texture2D" uid="uid://dyb5iqfj3tmwj" path="res://Art/Sprites/light.png" id="7_pmkwp"]
+[ext_resource type="PackedScene" uid="uid://ceoo6gamb4olk" path="res://Scenes/Interactables/Area_Blocker.tscn" id="8_qjorm"]
+[ext_resource type="PackedScene" uid="uid://b4l1gom0wsk8p" path="res://Scenes/Interactables/area_exit.tscn" id="9_n3k5j"]
+[ext_resource type="PackedScene" uid="uid://v5udutt1ldh5" path="res://Scenes/Levels/Velocity/VelocityInfo.tscn" id="11_bxkhb"]
+[ext_resource type="TileSet" uid="uid://b3n0bklwwny1b" path="res://Art/TileMap.tres" id="11_sqrpl"]
+[ext_resource type="PackedScene" uid="uid://48vtm5vekhaq" path="res://Scenes/QuestUpdate.tscn" id="12_n55bu"]
+[ext_resource type="Script" path="res://Scripts/QuestGeneral/Quest.gd" id="13_tr772"]
+[ext_resource type="AudioStream" uid="uid://bia7rrlxphfg2" path="res://Art/Audio/corridorsOgg.ogg" id="14_q2jy0"]
+[ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="15_rep87"]
+
+[node name="Scene_Root" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_8qrbs")
+
+[node name="Player" parent="." instance=ExtResource("2_ilqvw")]
+position = Vector2(-743, 99)
+
+[node name="NPCs" type="Node" parent="."]
+
+[node name="Enemy" parent="NPCs" instance=ExtResource("3_kj758")]
+position = Vector2(-113, 232)
+
+[node name="Enemy2" parent="NPCs" instance=ExtResource("3_kj758")]
+position = Vector2(122, 105)
+
+[node name="Enemy3" parent="NPCs" instance=ExtResource("3_kj758")]
+position = Vector2(50, -45)
+
+[node name="Enemy4" parent="NPCs" instance=ExtResource("3_kj758")]
+position = Vector2(124, 271)
+
+[node name="Enemy5" parent="NPCs" instance=ExtResource("3_kj758")]
+position = Vector2(-148, -51)
+
+[node name="Enemy6" parent="NPCs" instance=ExtResource("3_kj758")]
+position = Vector2(-160, 295)
+
+[node name="Enemy7" parent="NPCs" instance=ExtResource("3_kj758")]
+position = Vector2(-171, 216)
+
+[node name="NPC" parent="NPCs" instance=ExtResource("4_k4pr7")]
+position = Vector2(-585, 71)
+line1 = ["Another survivor!", "There are too many monsters", "They don't pay me enough for this"]
+
+[node name="NPC2" parent="NPCs" instance=ExtResource("4_k4pr7")]
+position = Vector2(-409, -24)
+line1 = ["There is a portal in the basement summoning these monsters"]
+
+[node name="NPC3" parent="NPCs" instance=ExtResource("4_k4pr7")]
+position = Vector2(-518, -18)
+line1 = ["We have seen you vanquish the monsters, you are our only hope..."]
+
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Pickup4" parent="Pickups" instance=ExtResource("4_0fde8")]
+position = Vector2(-204, 290)
+amplitude = 12.0
+
+[node name="Pickup2" parent="Pickups" instance=ExtResource("4_0fde8")]
+position = Vector2(-412, 103)
+amplitude = 12.0
+
+[node name="Pickup3" parent="Pickups" instance=ExtResource("4_0fde8")]
+position = Vector2(135, -82)
+amplitude = 12.0
+
+[node name="Pickup5" parent="Pickups" instance=ExtResource("4_0fde8")]
+position = Vector2(297, 10)
+amplitude = 12.0
+
+[node name="Pickup6" parent="Pickups" instance=ExtResource("4_0fde8")]
+position = Vector2(-196, 321)
+amplitude = 12.0
+
+[node name="Pickup7" parent="Pickups" instance=ExtResource("4_0fde8")]
+position = Vector2(-127, 329)
+amplitude = 12.0
+
+[node name="Pickup8" parent="Pickups" instance=ExtResource("4_0fde8")]
+position = Vector2(-88, 329)
+amplitude = 12.0
+
+[node name="SceneSettings" parent="." instance=ExtResource("5_jehkl")]
+
+[node name="Scene" type="Node" parent="."]
+
+[node name="Welcome Label" type="Label" parent="Scene"]
+visible = false
+texture_filter = 1
+offset_left = -283.0
+offset_top = -97.0
+offset_right = -15.0
+offset_bottom = -4.00002
+scale = Vector2(1, 0.987186)
+text = "Looks like you need to fight!
+
+LMB - Punch
+RMB - Spinning kick"
+label_settings = ExtResource("6_lkfjj")
+
+[node name="WindowLights2" type="Node" parent="Scene"]
+
+[node name="PointLight2D" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(-339, -45)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_pmkwp")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(-494, -47)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_pmkwp")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(-29, -55)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_pmkwp")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(-230, 290)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_pmkwp")
+
+[node name="AreaBlocker" parent="Scene" instance=ExtResource("8_qjorm")]
+position = Vector2(303, 271)
+
+[node name="AreaExit" parent="Scene" instance=ExtResource("9_n3k5j")]
+position = Vector2(302, 268)
+next_scene = ExtResource("11_bxkhb")
+
+[node name="TileMap" type="TileMapLayer" parent="Scene"]
+z_index = -1
+texture_filter = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AADz/wAAAAACAAEAAAD0/wAAAAABAAIAAAD1/wAAAAABAAIAAAD2/wAAAAABAAIAAAD3/wAAAAABAAIAAAD4/wAAAAABAAIAAAD5//3/AAAAAAEAAAD5//7/AAAAAAEAAAD5////AAACAAEAAAD5/wAAAAACAAEAAAD5/wEAAAAAAAEAAAD5/wIAAAAAAAEAAAD5/wMAAAAAAAIAAAD6/wMAAAACAAEAAAD7/wMAAAACAAEAAAD8/wMAAAACAAEAAAD8/wIAAAACAAEAAAD8/wEAAAACAAEAAAD7/wEAAAACAAEAAAD6/wEAAAACAAEAAAD6/wIAAAACAAEAAAD7/wIAAAACAAEAAAD6//3/AAACAAEAAAD6//7/AAACAAEAAAD6////AAACAAEAAAD6/wAAAAACAAEAAAD7/wAAAAACAAEAAAD7////AAAGAAIAAAD8////AAACAAEAAAD8//7/AAACAAEAAAD8//3/AAACAAEAAAD7//3/AAACAAEAAAD7//7/AAACAAEAAAD8/wAAAAACAAEAAAD9////AAACAAEAAAD+////AAACAAEAAAD+/wAAAAACAAEAAAD9/wAAAAACAAEAAAD9/wEAAAACAAEAAAD+/wEAAAABAAIAAAD/////AAACAAEAAAD//wAAAAACAAEAAAD//wEAAAABAAIAAAAAAAMAAAAAAAIAAAABAAMAAAABAAIAAAABAAIAAAACAAEAAAABAAEAAAACAAEAAAABAAAAAAACAAEAAAABAP//AAACAAEAAAABAP7/AAACAAEAAAABAP3/AAACAAEAAAAAAP3/AAAAAAEAAAAAAP7/AAAAAAEAAAAAAP//AAACAAEAAAAAAAAAAAACAAEAAAAAAAEAAAACAAEAAAAAAAIAAAAAAAEAAAACAP3/AAACAAEAAAACAP7/AAACAAEAAAACAP//AAACAAEAAAACAAAAAAAGAAIAAAACAAEAAAACAAEAAAACAAIAAAACAAEAAAACAAMAAAACAAEAAAD9/wMAAAADAAIAAAD9/wIAAAADAAEAAAD9//7/AAADAAEAAAD9//3/AAADAAEAAAD6/wQAAAAAAAEAAAD7/wQAAAACAAEAAAD8/wQAAAADAAEAAAD8/wUAAAADAAEAAAD7/wUAAAACAAEAAAD6/wUAAAAAAAEAAAD6/wYAAAACAAEAAAD7/wYAAAACAAEAAAD8/wYAAAACAAEAAAD5/wcAAAAAAAEAAAD6/wcAAAACAAEAAAD7/wcAAAACAAEAAAD8/wcAAAACAAEAAAD9/wcAAAACAAEAAAD9/wgAAAACAAEAAAD9/wkAAAACAAEAAAD8/wkAAAAGAAIAAAD8/woAAAABAAIAAAD9/woAAAADAAIAAAD7/woAAAABAAIAAAD6/woAAAABAAIAAAD5/woAAAAAAAIAAAD5/wkAAAAAAAEAAAD5/wgAAAAAAAEAAAD7/wgAAAACAAEAAAD8/wgAAAACAAEAAAD6/wgAAAAGAAIAAAD6/wkAAAACAAEAAAD7/wkAAAACAAEAAAADAP3/AAACAAEAAAADAP7/AAAGAAIAAAADAP//AAACAAEAAAADAAAAAAACAAEAAAADAAEAAAACAAEAAAADAAIAAAACAAEAAAADAAMAAAACAAEAAAAEAP3/AAADAAEAAAAEAP7/AAADAAEAAAAEAP//AAACAAEAAAAEAAAAAAACAAEAAAAEAAEAAAADAAEAAAAEAAMAAAADAAEAAAAEAAIAAAADAAEAAAACAAQAAAAAAAEAAAACAAUAAAAAAAIAAAADAAUAAAACAAEAAAAEAAUAAAADAAEAAAAEAAQAAAADAAEAAAADAAQAAAACAAEAAAAEAAYAAAADAAEAAAAEAAcAAAADAAEAAAADAAcAAAACAAEAAAADAAYAAAAAAAEAAAADAAgAAAAGAAIAAAAEAAgAAAACAAEAAAAEAAkAAAABAAIAAAADAAkAAAABAAIAAAACAAkAAAABAAIAAAABAAkAAAABAAIAAAAAAAkAAAABAAIAAAD//wkAAAABAAIAAAD+/wkAAAABAAIAAAD+/wgAAAACAAEAAAD//wgAAAACAAEAAAAAAAgAAAACAAEAAAABAAgAAAACAAEAAAACAAgAAAACAAEAAAAFAAAAAAABAAIAAAAGAAAAAAABAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAJAAAAAAADAAIAAAAFAAkAAAABAAIAAAAGAAkAAAABAAIAAAAHAAkAAAABAAIAAAAIAAkAAAABAAIAAAAJAAkAAAADAAIAAADt//7/AAABAAAAAADu//7/AAABAAAAAADv//7/AAABAAAAAADw//7/AAABAAAAAADx//7/AAABAAAAAADy//7/AAABAAAAAADz//7/AAABAAAAAADz////AAACAAEAAADz/wEAAAADAAEAAADy/wEAAAACAAEAAADy/wIAAAACAAEAAADy/wMAAAABAAIAAADz/wIAAAADAAEAAADz/wMAAAADAAIAAADx/wMAAAABAAIAAADw/wMAAAABAAIAAADv/wMAAAABAAIAAADu/wMAAAABAAIAAADt/wMAAAABAAIAAADs/wMAAAABAAIAAADs/wIAAAAHAAAAAADt/wIAAAAAAAEAAADt/wEAAAAAAAEAAADt/wAAAAAAAAEAAADt////AAAAAAEAAADu/wAAAAACAAEAAADu/wEAAAACAAEAAADv/wAAAAACAAEAAADv////AAACAAEAAADu////AAACAAEAAADu/wIAAAACAAEAAADv/wEAAAACAAEAAADw/wAAAAACAAEAAADw////AAACAAEAAADx////AAACAAEAAADy////AAACAAEAAADy/wAAAAACAAEAAADx/wAAAAACAAEAAADw/wEAAAACAAEAAADx/wEAAAACAAEAAADx/wIAAAAGAAIAAADw/wIAAAACAAEAAADv/wIAAAACAAEAAADo/wMAAAAAAAIAAADp/wMAAAABAAIAAADq/wMAAAABAAIAAADr/wMAAAABAAIAAADo/wIAAAAFAAAAAAAJAAgAAAAGAAcAAAAJAP//AAAFAAAAAAD7//z/AAAFAAAAAAACAPz/AAAFAAAAAADp/wIAAAAHAAAAAADq/wIAAAAHAAAAAADr/wIAAAAHAAAAAAD5//z/AAABAAAAAAD6//z/AAABAAAAAAD8//z/AAABAAAAAAD9//z/AAABAAAAAAAAAPz/AAABAAAAAAABAPz/AAABAAAAAAD+//7/AAABAAAAAAD///7/AAABAAAAAAADAPz/AAABAAAAAAAEAPz/AAABAAAAAAAFAP//AAABAAAAAAAGAP//AAABAAAAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAFAAgAAAAHAAAAAAAGAAgAAAAHAAAAAAAHAAgAAAAHAAAAAAAIAAgAAAAHAAAAAAD+/wcAAAAHAAAAAAD//wcAAAAHAAAAAAAAAAcAAAAHAAAAAAABAAcAAAAHAAAAAAACAAcAAAAHAAAAAAD9/wYAAAAHAAAAAAD5/wYAAAAHAAAAAAD0////AAABAAAAAAD1////AAABAAAAAAD2////AAABAAAAAAD3////AAABAAAAAAD4////AAABAAAAAAA=")
+tile_set = ExtResource("11_sqrpl")
+metadata/_edit_lock_ = true
+
+[node name="Quests" type="Node" parent="Scene"]
+
+[node name="QuestStart" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("12_n55bu")]
+position = Vector2(-658, 94)
+quest = NodePath("../FirstQuest")
+
+[node name="QuestUpdate" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("12_n55bu")]
+position = Vector2(-332, -3)
+quest = NodePath("../FirstQuest")
+type = 2
+
+[node name="QuestFinish" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("12_n55bu")]
+position = Vector2(270, 292)
+quest = NodePath("../FirstQuest")
+type = 3
+
+[node name="FirstQuest" type="Node" parent="Scene/Quests"]
+script = ExtResource("13_tr772")
+quest_id = 1
+quest_name = "Continue On"
+quest_objective = Array[String](["Gain info from the survivors", "Make it to the basement to stop the monsters"])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Scene"]
+stream = ExtResource("14_q2jy0")
+volume_db = -1.0
+autoplay = true
+
+[node name="Score_UI" parent="." instance=ExtResource("15_rep87")]

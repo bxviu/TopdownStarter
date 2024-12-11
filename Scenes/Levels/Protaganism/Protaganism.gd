@@ -38,6 +38,7 @@ func _on_quest_finish(quest_name: String):
 	# Example of different actions based on quest progress
 	match quest_name:
 		"Joe needs Coins":
+			GameManager.add_money(-5)
 			await get_tree().create_timer(2.5).timeout
 			get_tree().change_scene_to_file("res://Scenes/Levels/Protaganism/ProtaganismInfo.tscn")
 		_:

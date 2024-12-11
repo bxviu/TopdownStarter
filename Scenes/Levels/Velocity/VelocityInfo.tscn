@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://v5udutt1ldh5"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Velocity/VelocityInfo.gd" id="1_qp0h0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtf74"]
+font_size = 66
+
+[sub_resource type="LabelSettings" id="LabelSettings_r400j"]
+font_size = 101
+
+[node name="Velocity" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qp0h0")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 4.0
+offset_right = 556.0
+offset_bottom = 95.0
+text = "Velocity"
+label_settings = SubResource("LabelSettings_rtf74")
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 92.0
+offset_right = 613.0
+offset_bottom = 323.0
+autowrap_mode = 2
+
+[node name="ContinueLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 334.0
+offset_right = 423.0
+offset_bottom = 357.0
+text = "Click to continue"
+horizontal_alignment = 1
+
+[node name="BigText" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = 98.0
+offset_right = 945.0
+offset_bottom = 325.0
+text = "Big Decision"
+label_settings = SubResource("LabelSettings_r400j")

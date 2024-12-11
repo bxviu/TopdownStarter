@@ -10,10 +10,10 @@ script = ExtResource("1_bxbic")
 
 [node name="MainVBox" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 24.0
-offset_right = 436.0
-offset_bottom = 852.0
+offset_left = 183.0
+offset_top = 21.0
+offset_right = 427.81
+offset_bottom = 849.0
 
 [node name="LevelPreview2" type="TextureRect" parent="MainVBox"]
 custom_minimum_size = Vector2(1.085, 48.8)

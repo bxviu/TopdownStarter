@@ -2,13 +2,13 @@ extends Node2D
 
 @export var zone_name = "Zone"
 @export var interactable = false
-@export var path = ""
-@export var parent: Node = null 
+#@export var path = ""
+#@export var parent: Node = null 
 
 @onready var prompt = $EtoInteract
 @onready var display = $Name
 
-signal interacted
+signal interacted(display_name)
 var emitted = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,7 +20,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("Enter") and prompt.visible == true):
-		emit_signal("interacted")
+		emit_signal("interacted", zone_name)
 		#GameManager.show_popup(path, parent)
 	pass
 

@@ -41,7 +41,7 @@ func update_manager_levels():
 func update_level_display_delayed():
 	timing = true
 	# Await a short delay before updating
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(0.75).timeout
 	current_level = selected_level
 	update_manager_levels()
 	update_level_display()

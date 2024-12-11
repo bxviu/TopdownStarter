@@ -174,6 +174,24 @@ position = Vector2(0, -4.76837e-07)
 scale = Vector2(1.81, 1.81)
 zone_name = "NPC6"
 
+[node name="Painter" parent="NPCs" instance=ExtResource("3_5eb32")]
+position = Vector2(-27, -38)
+line1 = ["Want a change of color?", "New colros here!"]
+
+[node name="TouchZone" parent="NPCs/Painter" instance=ExtResource("4_8xm7n")]
+position = Vector2(0, -4.76837e-07)
+zone_name = "Painter"
+interactable = true
+
+[node name="Beggar" parent="NPCs" instance=ExtResource("3_5eb32")]
+position = Vector2(485, 131)
+line1 = ["Coins...", "Where did it all go..."]
+
+[node name="TouchZone" parent="NPCs/Beggar" instance=ExtResource("4_8xm7n")]
+position = Vector2(0, -4.76837e-07)
+zone_name = "Bob"
+interactable = true
+
 [node name="SceneSettings" parent="." instance=ExtResource("5_to22d")]
 
 [node name="Scene" type="Node" parent="."]
@@ -258,11 +276,5 @@ libraries = {
 "": SubResource("AnimationLibrary_hhqc3")
 }
 
-[node name="TouchZone" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("4_8xm7n")]
-position = Vector2(-27, -52)
-zone_name = "Aesthetics"
-interactable = true
-path = "res://Scenes/Levels/Aesthetic/Aesthetic.tscn"
-parent = NodePath("../Player")
-
-[connection signal="interacted" from="TouchZone" to="." method="_on_touch_zone_interacted"]
+[connection signal="interacted" from="NPCs/Painter/TouchZone" to="." method="_on_touch_zone_interacted"]
+[connection signal="interacted" from="NPCs/Beggar/TouchZone" to="." method="_on_touch_zone_interacted"]
