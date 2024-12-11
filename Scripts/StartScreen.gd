@@ -9,7 +9,7 @@ func _ready():
 # Function called when the Start button is pressed
 func _on_start_button_pressed():
 	# Replace "res://main_game_scene.tscn" with the path to your main game scene
-	get_tree().change_scene_to_file("res://Scenes/Levels/BigDecision.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/Introduction/Intro.tscn")
 
 # Function called when the Quit button is pressed
 func _on_quit_button_pressed():

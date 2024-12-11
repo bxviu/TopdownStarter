@@ -1,0 +1,135 @@
+[gd_scene load_steps=13 format=4 uid="uid://2pw31l0n4c8e"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Protaganism/Protaganism.gd" id="1_iji2n"]
+[ext_resource type="PackedScene" uid="uid://bvg5dny32iw0x" path="res://Scenes/Player/Player.tscn" id="1_ll371"]
+[ext_resource type="PackedScene" uid="uid://ckp2r52hlcfxn" path="res://Scenes/NPC's/Npc_OfficeWorker/npc_officeworker_scene.tscn" id="3_rm352"]
+[ext_resource type="PackedScene" uid="uid://bblpsy4fvi76f" path="res://Scenes/Interactables/Coin.tscn" id="4_rw4iw"]
+[ext_resource type="PackedScene" uid="uid://cx8kkqawojm0m" path="res://Scenes/Misc/SceneSettings.tscn" id="5_7j7x8"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="6_gs3c0"]
+[ext_resource type="Texture2D" uid="uid://dyb5iqfj3tmwj" path="res://Art/Sprites/light.png" id="7_lfulw"]
+[ext_resource type="TileSet" uid="uid://b3n0bklwwny1b" path="res://Art/TileMap.tres" id="11_i4j20"]
+[ext_resource type="PackedScene" uid="uid://48vtm5vekhaq" path="res://Scenes/QuestUpdate.tscn" id="12_ny0wm"]
+[ext_resource type="Script" path="res://Scripts/QuestGeneral/Quest.gd" id="13_pqxtj"]
+[ext_resource type="AudioStream" uid="uid://bia7rrlxphfg2" path="res://Art/Audio/corridorsOgg.ogg" id="14_nn6v6"]
+[ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="15_8g6hl"]
+
+[node name="Scene_Root" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_iji2n")
+
+[node name="Player" parent="." instance=ExtResource("1_ll371")]
+position = Vector2(-85, -117)
+
+[node name="NPCs" type="Node" parent="."]
+
+[node name="NPC" parent="NPCs" instance=ExtResource("3_rm352")]
+position = Vector2(-196, 70)
+line1 = ["I need 3 coins.", "Please bring them to me.", "You can't leave until I get them."]
+
+[node name="NPC2" parent="NPCs" instance=ExtResource("3_rm352")]
+visible = false
+position = Vector2(-196, 70)
+line1 = ["Thanks!", "Now the story can progress"]
+
+[node name="Pickups" type="Node" parent="."]
+
+[node name="Pickup4" parent="Pickups" instance=ExtResource("4_rw4iw")]
+position = Vector2(-199, 347)
+amplitude = 12.0
+
+[node name="Pickup2" parent="Pickups" instance=ExtResource("4_rw4iw")]
+position = Vector2(19, 250)
+amplitude = 12.0
+
+[node name="Pickup3" parent="Pickups" instance=ExtResource("4_rw4iw")]
+position = Vector2(-284, 218)
+amplitude = 12.0
+
+[node name="SceneSettings" parent="." instance=ExtResource("5_7j7x8")]
+
+[node name="Scene" type="Node" parent="."]
+
+[node name="Welcome Label" type="Label" parent="Scene"]
+texture_filter = 1
+offset_left = -42.0
+offset_top = -150.0
+offset_right = 20.0
+offset_bottom = -121.0
+text = "Tutorial
+WASD - Move"
+label_settings = ExtResource("6_gs3c0")
+
+[node name="WindowLights2" type="Node" parent="Scene"]
+
+[node name="PointLight2D" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(-176, 8)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_lfulw")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(-16, 8)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_lfulw")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(49, 9)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_lfulw")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(176, 10)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_lfulw")
+
+[node name="TileMap" type="TileMapLayer" parent="Scene"]
+z_index = -1
+texture_filter = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD5/wEAAAAAAAEAAAD5/wIAAAAAAAEAAAD5/wAAAAAFAAAAAAD6/wAAAAAGAAAAAAD7/wAAAAAJAAIAAAD8/wAAAAAHAAAAAAD9/wAAAAAIAAAAAAD6/wEAAAACAAEAAAD7/wEAAAAGAAEAAAD8/wEAAAAGAAEAAAD9/wEAAAAGAAEAAAD6/wIAAAAGAAEAAAD7/wIAAAAGAAEAAAD8/wIAAAAGAAEAAAD9/wIAAAAGAAEAAAD+/wIAAAADAAEAAAD5/wMAAAAAAAIAAAD6/wMAAAABAAIAAAD8/wMAAAABAAIAAAD9/wMAAAABAAIAAAD+/wMAAAADAAIAAAD+/wAAAAADAAAAAAD+/wEAAAADAAEAAAAAAAUAAAAAAAAAAAABAAYAAAAGAAEAAAAAAAYAAAAFAAEAAAACAAYAAAADAAEAAAD7/wMAAAAJAAAAAAD7/wQAAAAJAAEAAAD7/wUAAAAJAAIAAAD4/wUAAAAEAAAAAAD5/wUAAAAFAAAAAAD6/wUAAAAGAAAAAAD2/wUAAAAAAAAAAAD2/wYAAAAAAAEAAAD3/wUAAAABAAAAAAD3/wYAAAABAAEAAAD4/wYAAAABAAEAAAD5/wYAAAACAAEAAAD6/wYAAAAGAAEAAAD7/wYAAAABAAEAAAD8/wYAAAABAAEAAAD//wYAAAAGAAEAAAD+/wYAAAAGAAEAAAD9/wYAAAAGAAEAAAD+/wUAAAAHAAAAAAD//wUAAAAEAAAAAAD8/wUAAAAHAAAAAAD9/wUAAAAIAAAAAAD5//v/AAAAAAAAAAD5//z/AAAAAAEAAAD5//3/AAAAAAEAAAD5//7/AAAAAAIAAAD6//v/AAAEAAAAAAD6//z/AAACAAEAAAD6//3/AAAGAAEAAAD6//7/AAABAAIAAAD7//v/AAAHAAAAAAD7//z/AAAGAAEAAAD7//3/AAAGAAEAAAD7//7/AAAJAAAAAAD7////AAAJAAEAAAD8//v/AAAGAAAAAAD8//z/AAAGAAEAAAD8//3/AAAGAAEAAAD8//7/AAABAAIAAAD9//v/AAAFAAAAAAD9//z/AAADAAEAAAD9//3/AAADAAEAAAD9//7/AAADAAIAAAD2/wcAAAAAAAEAAAD2/wgAAAAAAAEAAAD2/wkAAAAAAAEAAAD2/woAAAAAAAEAAAD2/wsAAAAAAAIAAAD6/wsAAAADAAIAAAD5/wcAAAABAAEAAAD6/wgAAAADAAEAAAD5/wgAAAABAAEAAAD5/wkAAAABAAEAAAD5/woAAAAGAAIAAAD4/wkAAAABAAEAAAD4/wgAAAABAAEAAAD4/wcAAAABAAEAAAD3/wcAAAABAAEAAAD3/wgAAAAGAAIAAAD3/wkAAAABAAEAAAD3/woAAAABAAEAAAD4/woAAAABAAEAAAD4/wsAAAACAAIAAAD6/wcAAAABAAEAAAD6/wkAAAADAAEAAAD6/woAAAADAAEAAAD5/wsAAAACAAIAAAD3/wsAAAACAAIAAAD//wcAAAABAAEAAAAAAAcAAAAGAAIAAAABAAcAAAABAAEAAAACAAcAAAADAAEAAAD//wgAAAABAAEAAAAAAAgAAAABAAEAAAABAAgAAAABAAEAAAACAAgAAAADAAEAAAABAAUAAAAHAAAAAAACAAUAAAAHAAAAAAABAAkAAAACAAIAAAAAAAkAAAACAAIAAAD//wkAAAACAAIAAAD+/wkAAAAAAAIAAAD+/wgAAAAAAAEAAAD+/wcAAAABAAEAAAD7/wcAAAABAAIAAAD8/wcAAAABAAIAAAD9/wcAAAABAAIAAAACAAkAAAADAAIAAAA=")
+tile_set = ExtResource("11_i4j20")
+
+[node name="Quests" type="Node" parent="Scene"]
+
+[node name="QuestStart" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("12_ny0wm")]
+position = Vector2(-172, 76)
+quest = NodePath("../GatherQuest")
+
+[node name="QuestUpdate" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("12_ny0wm")]
+position = Vector2(20, 251)
+scale = Vector2(0.43, 0.43)
+quest = NodePath("../GatherQuest")
+type = 2
+
+[node name="QuestUpdate2" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("12_ny0wm")]
+position = Vector2(-283, 220)
+scale = Vector2(0.43, 0.43)
+quest = NodePath("../GatherQuest")
+type = 2
+
+[node name="QuestUpdate3" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("12_ny0wm")]
+position = Vector2(-198, 347)
+scale = Vector2(0.43, 0.43)
+quest = NodePath("../GatherQuest")
+type = 2
+
+[node name="QuestFinish" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("12_ny0wm")]
+position = Vector2(-304, 79)
+quest = NodePath("../GatherQuest")
+type = 3
+
+[node name="GatherQuest" type="Node" parent="Scene/Quests"]
+script = ExtResource("13_pqxtj")
+quest_id = 1
+quest_name = "Joe needs Coins"
+quest_objective = Array[String](["Get coins so Joe lets you leave", "1/3 Collected", "2/3 Collected", "3/3 Collected, Go back to Joe!"])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Scene"]
+stream = ExtResource("14_nn6v6")
+volume_db = -1.0
+autoplay = true
+
+[node name="Score_UI" parent="." instance=ExtResource("15_8g6hl")]

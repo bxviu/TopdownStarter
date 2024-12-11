@@ -52,11 +52,14 @@ func update_quest(source_quest : Quest):
 		
 	current_quest_step += 1
 	quest_info.text = current_quest.quest_name + "\n" + source_quest.quest_objective[current_quest_step]
+	GameManager.emit_signal("quest_progress", current_quest.quest_name, current_quest_step)
+	print("progress: " + str(current_quest.quest_name, current_quest_step))
 	announce_quest("Quest updated!", 1.5)
 
 #Finish quest and give reward here
 func complete_quest(quest : Quest):
 	GameManager.add_money(quest.quest_reward)
+	GameManager.emit_signal("quest_finish", current_quest.quest_name)
 	announce_quest("Quest completed!", 3)
 	quest_info.text = ""
 	quest.free() #probably not necessary

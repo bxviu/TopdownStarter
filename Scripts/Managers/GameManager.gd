@@ -7,6 +7,12 @@ var selected_level = LEVELOFFSET
 var current_level = LEVELOFFSET
 var linear = true
 
+var playerAttacks = false
+var playerDash = false
+
+signal quest_progress(quest_name, progress)
+signal quest_finish(quest_name)
+
 #NOTE This class is our game manager and handles the players money and loading scenes
 #These functions can be called globally from anywhere
 

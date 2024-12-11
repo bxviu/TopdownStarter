@@ -42,10 +42,12 @@ func update_level_display_delayed():
 	timing = true
 	# Await a short delay before updating
 	await get_tree().create_timer(2.5).timeout
-	timing = false
 	current_level = selected_level
 	update_manager_levels()
 	update_level_display()
+	# Await a short delay before updating
+	await get_tree().create_timer(2.5).timeout
+	enter_level()
 
 func update_level_display():
 	# Iterate through each level and adjust their size and position
@@ -60,3 +62,10 @@ func update_level_display():
 			levels[i].modulate = Color(0.25, 0.25, 0.25)  # Dimmed
 		# Smoothly scroll the VBoxContainer
 		$MainVBox.move_child(levels[i], i - current_level)
+
+func enter_level():
+	match selected_level:
+		-2:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Big Decision/BigDecision.tscn")
+
+		
