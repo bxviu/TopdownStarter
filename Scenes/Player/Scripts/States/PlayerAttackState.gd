@@ -5,7 +5,9 @@ class_name PlayerAttacking
 var current_attack : Attack_Data
 @export var attacks : Array[Attack_Data]
 @onready var hit_particles = $"../../AnimatedSprite2D/HitParticles"
+@onready var hitbox = $"../../BodyCollisionShape/Area2D"
 
+var boostedDamage = false
 func Enter():
 	AudioManager.play_sound(AudioManager.PLAYER_ATTACK_SWING, 0.3, 1)
 	
@@ -31,4 +33,15 @@ func _on_hitbox_body_entered(body):
 
 func deal_damage(enemy : EnemyMain):
 	hit_particles.emitting = true
-	enemy._take_damage(current_attack.damage)
+	enemy._take_damage(current_attack.damage * 2 if boostedDamage else current_attack.damage)
+
+func _process(delta):
+	# Get all overlapping bodies
+	var overlapping_bodies = hitbox.get_overlapping_bodies()
+	#print(overlapping_bodies)
+	for body in overlapping_bodies:
+		if body.is_in_group("DamageBoost"):
+			#print("Target is inside the hitbox!")
+			boostedDamage = true
+		else:
+			boostedDamage = false
