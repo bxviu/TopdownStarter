@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bvg5dny32iw0x"]
+[gd_scene load_steps=53 format=3 uid="uid://bvg5dny32iw0x"]
 
 [ext_resource type="Texture2D" uid="uid://b4rhu7tb8453t" path="res://Scenes/Player/Sprite/Player_Idle1.png" id="1_8ujai"]
 [ext_resource type="Texture2D" uid="uid://cgwb0bq0pw036" path="res://Scenes/Player/Sprite/Player_attack1.png" id="1_8w3ed"]
@@ -144,6 +144,9 @@ radius = 25.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7m131"]
 radius = 8.06226
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vaim5"]
+radius = 11.0454
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub6e5"]
 bg_color = Color(0.0352941, 0.0156863, 0.00784314, 0.427451)
@@ -418,8 +421,7 @@ occluder = SubResource("OccluderPolygon2D_uky13")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_vax36")
-animation = &"Dash"
-frame = 3
+animation = &"Attack"
 
 [node name="HitParticles" parent="AnimatedSprite2D" instance=ExtResource("21_gooki")]
 position = Vector2(15, 5)
@@ -443,6 +445,11 @@ disabled = true
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
 shape = SubResource("CircleShape2D_7m131")
+
+[node name="Area2D" type="Area2D" parent="BodyCollisionShape"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BodyCollisionShape/Area2D"]
+shape = SubResource("CircleShape2D_vaim5")
 
 [node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("21_54cjv")
