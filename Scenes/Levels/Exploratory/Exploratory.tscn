@@ -1,0 +1,257 @@
+[gd_scene load_steps=17 format=4 uid="uid://cxhija63o6tr"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Exploratory/Exploratory.gd" id="1_m2q57"]
+[ext_resource type="PackedScene" uid="uid://bvg5dny32iw0x" path="res://Scenes/Player/Player.tscn" id="2_y6uag"]
+[ext_resource type="PackedScene" uid="uid://ckp2r52hlcfxn" path="res://Scenes/NPC's/Npc_OfficeWorker/npc_officeworker_scene.tscn" id="3_5eb32"]
+[ext_resource type="PackedScene" uid="uid://dcl6l7rqg4sc1" path="res://Scenes/Interactables/TouchZone.tscn" id="4_8xm7n"]
+[ext_resource type="PackedScene" uid="uid://cx8kkqawojm0m" path="res://Scenes/Misc/SceneSettings.tscn" id="5_to22d"]
+[ext_resource type="LabelSettings" uid="uid://da8inon5cmt2r" path="res://Art/Fonts/pixelized_label.tres" id="6_r37yj"]
+[ext_resource type="Texture2D" uid="uid://dyb5iqfj3tmwj" path="res://Art/Sprites/light.png" id="7_3dfxe"]
+[ext_resource type="TileSet" uid="uid://b3n0bklwwny1b" path="res://Art/TileMap.tres" id="8_sdayo"]
+[ext_resource type="PackedScene" uid="uid://48vtm5vekhaq" path="res://Scenes/QuestUpdate.tscn" id="9_3ge41"]
+[ext_resource type="Script" path="res://Scripts/QuestGeneral/Quest.gd" id="10_y3htr"]
+[ext_resource type="AudioStream" uid="uid://bia7rrlxphfg2" path="res://Art/Audio/corridorsOgg.ogg" id="11_4y38v"]
+[ext_resource type="PackedScene" uid="uid://b6xb8nhlqtuhf" path="res://Scenes/ScoreTracker.tscn" id="12_kw05i"]
+
+[sub_resource type="Animation" id="Animation_sbykn"]
+resource_name = "move_area"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPCs/NPC5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.06667, 10.0333, 15.0667, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(392, -274), Vector2(553, -274), Vector2(556, -54), Vector2(393, -51), Vector2(392, -274)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NPCs/NPC6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.06667, 10.0667, 15.0333, 19.9333, 20.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(184, -241), Vector2(52, -236), Vector2(184, -241), Vector2(52, -236), Vector2(184, -241), Vector2(184, -241)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NPCs/NPC:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 10.0667, 19.9333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-458, -56), Vector2(-458, 7), Vector2(-458, -56)]
+}
+
+[sub_resource type="Animation" id="Animation_1ghu6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPCs/NPC5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(392, -274)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NPCs/NPC6:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(184, -241)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NPCs/NPC:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-458, -56)]
+}
+
+[sub_resource type="Animation" id="Animation_hoert"]
+resource_name = "move_side"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NPCs/NPC6:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(184, -241), Vector2(44, -241), Vector2(184, -241)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hhqc3"]
+_data = {
+"RESET": SubResource("Animation_1ghu6"),
+"move_area": SubResource("Animation_sbykn"),
+"move_side": SubResource("Animation_hoert")
+}
+
+[node name="Scene_Root" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_m2q57")
+
+[node name="Player" parent="." instance=ExtResource("2_y6uag")]
+position = Vector2(-113, -266)
+
+[node name="NPCs" type="Node" parent="."]
+
+[node name="NPC" parent="NPCs" instance=ExtResource("3_5eb32")]
+position = Vector2(-458, -56)
+line1 = ["This is my zone", "Text #2 moment", "Please talk to someone else"]
+
+[node name="TouchZone" parent="NPCs/NPC" instance=ExtResource("4_8xm7n")]
+scale = Vector2(1.875, 1.875)
+zone_name = "NPC1"
+
+[node name="NPC2" parent="NPCs" instance=ExtResource("3_5eb32")]
+position = Vector2(-394, -218)
+line1 = ["What's up", "Don't mind me", "This little area was made for me!"]
+
+[node name="TouchZone" parent="NPCs/NPC2" instance=ExtResource("4_8xm7n")]
+scale = Vector2(1.815, 1.815)
+zone_name = "NPC2"
+
+[node name="NPC3" parent="NPCs" instance=ExtResource("3_5eb32")]
+position = Vector2(-290, 190)
+line1 = ["That's me in the corner", "That's me in the spotlight", "Losing my religion"]
+
+[node name="TouchZone" parent="NPCs/NPC3" instance=ExtResource("4_8xm7n")]
+scale = Vector2(1.835, 1.835)
+zone_name = "NPC3"
+
+[node name="NPC4" parent="NPCs" instance=ExtResource("3_5eb32")]
+position = Vector2(206, 183)
+line1 = ["The guy in the other corner keeps yapping", "Is he trying to sing some lyrics???"]
+
+[node name="TouchZone" parent="NPCs/NPC4" instance=ExtResource("4_8xm7n")]
+scale = Vector2(1.85, 1.85)
+zone_name = "NPC4"
+
+[node name="NPC5" parent="NPCs" instance=ExtResource("3_5eb32")]
+position = Vector2(392, -274)
+line1 = ["Just doing my daily walk", "I must reach my step goal!!"]
+
+[node name="TouchZone" parent="NPCs/NPC5" instance=ExtResource("4_8xm7n")]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(1.81, 1.81)
+zone_name = "NPC5"
+
+[node name="NPC6" parent="NPCs" instance=ExtResource("3_5eb32")]
+position = Vector2(184, -241)
+line1 = ["Pacing back and forth", "Weeewooo"]
+
+[node name="TouchZone" parent="NPCs/NPC6" instance=ExtResource("4_8xm7n")]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(1.81, 1.81)
+zone_name = "NPC6"
+
+[node name="SceneSettings" parent="." instance=ExtResource("5_to22d")]
+
+[node name="Scene" type="Node" parent="."]
+
+[node name="Welcome Label" type="Label" parent="Scene"]
+texture_filter = 1
+offset_left = -128.0
+offset_top = -339.0
+offset_right = -66.0
+offset_bottom = -310.0
+text = "Explore!"
+label_settings = ExtResource("6_r37yj")
+
+[node name="WindowLights2" type="Node" parent="Scene"]
+
+[node name="PointLight2D" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(-169, -59)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_3dfxe")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(-297, 198)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_3dfxe")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(116, -64)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_3dfxe")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Scene/WindowLights2"]
+position = Vector2(485, -153)
+energy = 0.8
+shadow_enabled = true
+texture = ExtResource("7_3dfxe")
+
+[node name="TileMap" type="TileMapLayer" parent="Scene"]
+z_index = -2
+texture_filter = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAABAP7/AAABAAUAAAAAAP7/AAABAAUAAAD///7/AAABAAUAAAD+//7/AAABAAUAAAD9//7/AAABAAUAAAD+//3/AAABAAUAAAD///3/AAABAAUAAAAAAP3/AAABAAUAAAABAP3/AAABAAUAAAD9//3/AAABAAUAAAD8//7/AAABAAUAAAD7//7/AAABAAUAAAD7//3/AAABAAUAAAD8//3/AAABAAUAAAD5//j/AAABAAUAAAD5//n/AAABAAUAAAD5//r/AAABAAUAAAD5//v/AAABAAUAAAD5//z/AAABAAUAAAD6//v/AAABAAUAAAD7//r/AAABAAUAAAD7//n/AAABAAUAAAD8//n/AAABAAUAAAD7//v/AAABAAUAAAD6//z/AAABAAUAAAD6//r/AAABAAUAAAD6//n/AAABAAUAAAD8//v/AAABAAUAAAD8//z/AAABAAUAAAD7//z/AAABAAUAAAD4//z/AAABAAUAAAD6//3/AAABAAUAAAD5//3/AAABAAUAAAD5//7/AAABAAUAAAD5////AAABAAUAAAD4////AAABAAUAAAD4/wAAAAABAAUAAAD3/wEAAAABAAUAAAD3/wAAAAABAAUAAAD3////AAABAAUAAAD2//f/AAAAAAUAAAD2//j/AAAAAAUAAAD2//n/AAABAAUAAAD2//r/AAAAAAUAAAD2//v/AAAAAAUAAAD2//z/AAAAAAUAAAD2//3/AAAAAAUAAAD2//7/AAABAAUAAAD2////AAABAAUAAAD2/wAAAAABAAUAAAD2/wEAAAAAAAUAAAD2/wIAAAAAAAUAAAD2/wMAAAAAAAUAAAD2/wQAAAAAAAUAAAD2/wUAAAAAAAUAAAD2/wYAAAAAAAYAAAD3//f/AAABAAUAAAD3//j/AAABAAUAAAD3//n/AAABAAUAAAD3//r/AAABAAUAAAD3//v/AAABAAUAAAD3//z/AAABAAUAAAD3//3/AAABAAUAAAD3//7/AAABAAUAAAD3/wIAAAABAAUAAAD3/wMAAAABAAUAAAD3/wQAAAABAAUAAAD3/wUAAAABAAUAAAD3/wYAAAABAAYAAAD4//f/AAABAAUAAAD4//j/AAABAAUAAAD4//n/AAABAAUAAAD4//r/AAABAAUAAAD4//v/AAABAAUAAAD4//3/AAABAAUAAAD4//7/AAABAAUAAAD4/wEAAAABAAUAAAD4/wIAAAABAAUAAAD4/wMAAAABAAUAAAD4/wQAAAABAAUAAAD4/wUAAAABAAUAAAD4/wYAAAABAAYAAAD5//f/AAABAAUAAAD5/wAAAAABAAUAAAD5/wEAAAABAAUAAAD5/wIAAAABAAUAAAD5/wMAAAABAAUAAAD5/wQAAAABAAUAAAD5/wUAAAABAAUAAAD5/wYAAAABAAYAAAD6//f/AAABAAUAAAD6//j/AAABAAUAAAD6//7/AAABAAUAAAD6////AAABAAUAAAD6/wAAAAABAAUAAAD6/wEAAAABAAUAAAD6/wIAAAABAAUAAAD6/wMAAAABAAUAAAD6/wQAAAABAAUAAAD6/wUAAAABAAUAAAD6/wYAAAABAAYAAAD7//f/AAABAAUAAAD7//j/AAABAAUAAAD7////AAABAAUAAAD7/wAAAAABAAUAAAD7/wEAAAABAAUAAAD7/wIAAAABAAUAAAD7/wMAAAABAAUAAAD7/wQAAAABAAUAAAD7/wUAAAABAAUAAAD7/wYAAAABAAYAAAD8//f/AAABAAUAAAD8//j/AAABAAUAAAD8//r/AAABAAUAAAD8////AAABAAUAAAD8/wAAAAABAAUAAAD8/wEAAAABAAUAAAD8/wIAAAABAAUAAAD8/wMAAAABAAUAAAD8/wQAAAABAAUAAAD8/wUAAAABAAUAAAD8/wYAAAABAAYAAAD9//f/AAABAAUAAAD9//j/AAABAAUAAAD9//n/AAABAAUAAAD9//r/AAABAAUAAAD9//v/AAABAAUAAAD9//z/AAABAAUAAAD9////AAABAAUAAAD9/wAAAAABAAUAAAD9/wEAAAABAAUAAAD9/wIAAAABAAUAAAD9/wMAAAABAAUAAAD9/wQAAAABAAUAAAD9/wUAAAABAAUAAAD9/wYAAAABAAYAAAD+//f/AAABAAUAAAD+//j/AAABAAUAAAD+//n/AAABAAUAAAD+//r/AAABAAUAAAD+//v/AAABAAUAAAD+//z/AAABAAUAAAD+////AAABAAUAAAD+/wAAAAABAAUAAAD+/wEAAAABAAUAAAD+/wIAAAABAAUAAAD+/wMAAAABAAUAAAD+/wQAAAABAAUAAAD+/wUAAAABAAUAAAD+/wYAAAABAAYAAAD///f/AAABAAUAAAD///j/AAABAAUAAAD///n/AAABAAUAAAD///r/AAABAAUAAAD///v/AAABAAUAAAD///z/AAABAAUAAAD/////AAABAAUAAAD//wAAAAABAAUAAAD//wEAAAABAAUAAAD//wIAAAABAAUAAAD//wMAAAABAAUAAAD//wQAAAABAAUAAAD//wUAAAABAAUAAAD//wYAAAABAAYAAAAAAPf/AAABAAUAAAAAAPj/AAABAAUAAAAAAPn/AAABAAUAAAAAAPr/AAABAAUAAAAAAPv/AAABAAUAAAAAAPz/AAABAAUAAAAAAP//AAABAAUAAAAAAAAAAAABAAUAAAAAAAEAAAABAAUAAAAAAAIAAAABAAUAAAAAAAMAAAABAAUAAAAAAAQAAAABAAUAAAAAAAUAAAABAAUAAAAAAAYAAAABAAYAAAABAPf/AAABAAUAAAABAPj/AAABAAUAAAABAPn/AAABAAUAAAABAPr/AAABAAUAAAABAPv/AAABAAUAAAABAPz/AAABAAUAAAABAP//AAABAAUAAAABAAAAAAABAAUAAAABAAEAAAABAAUAAAABAAIAAAABAAUAAAABAAMAAAABAAUAAAABAAQAAAABAAUAAAABAAUAAAABAAUAAAABAAYAAAABAAYAAAACAPf/AAABAAUAAAACAPj/AAABAAUAAAACAPn/AAABAAUAAAACAPr/AAABAAUAAAACAPv/AAABAAUAAAACAPz/AAABAAUAAAACAP3/AAABAAUAAAACAP7/AAABAAUAAAACAP//AAABAAUAAAACAAAAAAABAAUAAAACAAEAAAABAAUAAAACAAIAAAABAAUAAAACAAMAAAABAAUAAAACAAQAAAABAAUAAAACAAUAAAABAAUAAAACAAYAAAABAAYAAAADAPf/AAABAAUAAAADAPj/AAABAAUAAAADAPn/AAABAAUAAAADAPr/AAABAAUAAAADAPv/AAABAAUAAAADAPz/AAABAAUAAAADAP3/AAABAAUAAAADAP7/AAABAAUAAAADAP//AAABAAUAAAADAAAAAAABAAUAAAADAAEAAAABAAUAAAADAAIAAAABAAUAAAADAAMAAAABAAUAAAADAAQAAAABAAUAAAADAAUAAAABAAUAAAADAAYAAAABAAYAAAAEAPf/AAABAAUAAAAEAPj/AAABAAUAAAAEAPn/AAABAAUAAAAEAPr/AAABAAUAAAAEAPv/AAABAAUAAAAEAPz/AAABAAUAAAAEAP3/AAABAAUAAAAEAP7/AAABAAUAAAAEAP//AAABAAUAAAAEAAAAAAABAAUAAAAEAAEAAAABAAUAAAAEAAIAAAABAAUAAAAEAAMAAAABAAUAAAAEAAQAAAABAAUAAAAEAAUAAAABAAUAAAAEAAYAAAABAAYAAAAFAPf/AAABAAUAAAAFAPj/AAABAAUAAAAFAPn/AAABAAUAAAAFAPr/AAABAAUAAAAFAPv/AAABAAUAAAAFAPz/AAABAAUAAAAFAP3/AAABAAUAAAAFAP7/AAABAAUAAAAFAP//AAABAAUAAAAFAAAAAAABAAUAAAAFAAEAAAABAAUAAAAFAAIAAAABAAUAAAAFAAMAAAABAAUAAAAFAAQAAAABAAUAAAAFAAUAAAABAAUAAAAFAAYAAAABAAYAAAAGAPf/AAABAAUAAAAGAPj/AAABAAUAAAAGAPn/AAABAAUAAAAGAPr/AAABAAUAAAAGAPv/AAABAAUAAAAGAPz/AAABAAUAAAAGAP3/AAABAAUAAAAGAP7/AAABAAUAAAAGAP//AAABAAUAAAAGAAAAAAABAAUAAAAGAAEAAAABAAUAAAAGAAIAAAABAAUAAAAGAAMAAAABAAUAAAAGAAQAAAABAAUAAAAGAAUAAAABAAUAAAAGAAYAAAABAAYAAAAHAPf/AAAEAAUAAAAHAPj/AAAEAAUAAAAHAPn/AAABAAUAAAAHAPr/AAABAAUAAAAHAPv/AAAEAAUAAAAHAPz/AAAEAAUAAAAHAP3/AAAEAAUAAAAHAP7/AAAEAAUAAAAHAP//AAAEAAUAAAAHAAAAAAAEAAUAAAAHAAEAAAAEAAUAAAAHAAIAAAABAAUAAAAHAAMAAAABAAUAAAAHAAQAAAABAAUAAAAHAAUAAAAEAAUAAAAHAAYAAAAEAAYAAAD2//b/AAABAAQAAAD3//b/AAABAAQAAAD4//b/AAABAAQAAAD5//b/AAABAAQAAAD6//b/AAABAAQAAAD7//b/AAABAAQAAAD8//b/AAAFAAAAAAD9//b/AAABAAQAAAD+//b/AAABAAQAAAD///b/AAABAAQAAAAAAPb/AAABAAQAAAABAPb/AAABAAQAAAACAPb/AAABAAQAAAADAPb/AAABAAQAAAAEAPb/AAABAAQAAAAFAPb/AAABAAQAAAAGAPb/AAABAAQAAAAHAPb/AAABAAQAAADy//7/AAABAAUAAADy////AAABAAUAAADy/wAAAAABAAYAAADz//7/AAABAAUAAADz////AAABAAUAAADz/wAAAAABAAYAAAD0//7/AAABAAUAAAD0////AAABAAUAAAD0/wAAAAABAAYAAAD1//7/AAABAAUAAAD1////AAABAAUAAAD1/wAAAAABAAYAAADz//n/AAAAAAYAAAD0//n/AAABAAYAAAD1//n/AAABAAYAAAAIAPn/AAABAAUAAAAIAPr/AAACAAYAAAAJAPn/AAABAAUAAAAJAPr/AAACAAYAAAAKAPn/AAABAAUAAAAKAPr/AAACAAYAAAALAPn/AAABAAUAAAALAPr/AAABAAUAAAAIAAIAAAABAAUAAAAIAAMAAAABAAUAAAAIAAQAAAACAAYAAAAJAAIAAAABAAUAAAAJAAMAAAABAAUAAAAJAAQAAAACAAYAAAAKAAIAAAABAAUAAAAKAAMAAAABAAUAAAAKAAQAAAACAAYAAAALAAIAAAABAAUAAAALAAMAAAABAAUAAAALAAQAAAACAAYAAAALAPb/AAAAAAUAAAALAPf/AAAAAAUAAAALAPj/AAAAAAUAAAALAPv/AAAAAAUAAAALAPz/AAAAAAUAAAALAP3/AAAAAAUAAAALAP7/AAAAAAUAAAALAP//AAAAAAUAAAAMAPb/AAABAAUAAAAMAPf/AAABAAUAAAAMAPj/AAABAAUAAAAMAPn/AAABAAUAAAAMAPr/AAABAAUAAAAMAPv/AAABAAUAAAAMAPz/AAABAAUAAAAMAP3/AAABAAUAAAAMAP7/AAABAAUAAAAMAP//AAABAAUAAAANAPb/AAABAAUAAAANAPf/AAABAAUAAAANAPj/AAABAAUAAAANAPn/AAABAAUAAAANAPr/AAABAAUAAAANAPv/AAABAAUAAAANAPz/AAABAAUAAAANAP3/AAABAAUAAAANAP7/AAABAAUAAAANAP//AAABAAUAAAAOAPb/AAABAAUAAAAOAPf/AAABAAUAAAAOAPj/AAABAAUAAAAOAPn/AAABAAUAAAAOAPr/AAABAAUAAAAOAPv/AAABAAUAAAAOAPz/AAABAAUAAAAOAP3/AAABAAUAAAAOAP7/AAABAAUAAAAOAP//AAABAAUAAAAPAPb/AAABAAUAAAAPAPf/AAABAAUAAAAPAPj/AAABAAUAAAAPAPn/AAABAAUAAAAPAPr/AAABAAUAAAAPAPv/AAABAAUAAAAPAPz/AAABAAUAAAAPAP3/AAABAAUAAAAPAP7/AAABAAUAAAAPAP//AAABAAUAAAAQAPb/AAABAAUAAAAQAPf/AAABAAUAAAAQAPj/AAABAAUAAAAQAPn/AAABAAUAAAAQAPr/AAABAAUAAAAQAPv/AAABAAUAAAAQAPz/AAABAAUAAAAQAP3/AAABAAUAAAAQAP7/AAABAAUAAAAQAP//AAACAAYAAAARAPb/AAABAAUAAAARAPf/AAABAAUAAAARAPj/AAABAAUAAAARAPn/AAABAAUAAAARAPr/AAABAAUAAAARAPv/AAABAAUAAAARAPz/AAABAAUAAAARAP3/AAABAAUAAAARAP7/AAABAAUAAAARAP//AAACAAYAAAASAPb/AAAEAAUAAAASAPf/AAAEAAUAAAASAPj/AAAEAAUAAAASAPn/AAAEAAUAAAASAPr/AAAEAAUAAAASAPv/AAAEAAUAAAASAPz/AAAEAAUAAAASAP3/AAAEAAUAAAASAP7/AAAEAAUAAAASAP//AAAEAAYAAAALAAAAAAAAAAUAAAALAAEAAAAAAAUAAAAMAAAAAAABAAUAAAAMAAEAAAABAAUAAAAMAAIAAAABAAUAAAAMAAMAAAABAAUAAAAMAAQAAAACAAYAAAANAAAAAAABAAUAAAANAAEAAAABAAUAAAANAAIAAAABAAUAAAANAAMAAAABAAUAAAANAAQAAAACAAYAAAAOAAAAAAABAAUAAAAOAAEAAAABAAUAAAAOAAIAAAABAAUAAAAOAAMAAAABAAUAAAAOAAQAAAACAAYAAAAPAAAAAAAEAAUAAAAPAAEAAAAEAAUAAAAPAAIAAAAEAAUAAAAPAAMAAAAEAAUAAAAPAAQAAAAEAAYAAADx//3/AAABAAQAAADy//3/AAABAAQAAADz//3/AAABAAQAAAD0//3/AAABAAQAAAD1//3/AAABAAQAAADz//j/AAABAAQAAAD0//j/AAABAAQAAAD1//j/AAABAAQAAADx//7/AAAHAAUAAADx////AAAAAAUAAADx/wAAAAAAAAYAAAALAPX/AAABAAQAAAAMAPX/AAABAAQAAAANAPX/AAABAAQAAAAOAPX/AAABAAQAAAAPAPX/AAABAAQAAAAQAPX/AAABAAQAAAARAPX/AAABAAQAAAASAPX/AAABAAQAAAAIAPj/AAACAAQAAAAJAPj/AAACAAQAAAAKAPj/AAACAAQAAAAIAAEAAAACAAQAAAAJAAEAAAACAAQAAAAKAAEAAAACAAQAAAA=")
+tile_set = ExtResource("8_sdayo")
+metadata/_edit_lock_ = true
+
+[node name="Quests" type="Node" parent="Scene"]
+
+[node name="QuestStart" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("9_3ge41")]
+position = Vector2(-108, -242)
+quest = NodePath("../ExploreQuest")
+
+[node name="QuestUpdate" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("9_3ge41")]
+position = Vector2(143, 276)
+scale = Vector2(0.43, 0.43)
+quest = NodePath("../ExploreQuest")
+type = 2
+
+[node name="QuestFinish" parent="Scene/Quests" node_paths=PackedStringArray("quest") instance=ExtResource("9_3ge41")]
+position = Vector2(387, 242)
+quest = NodePath("../ExploreQuest")
+type = 3
+
+[node name="ExploreQuest" type="Node" parent="Scene/Quests"]
+script = ExtResource("10_y3htr")
+quest_id = 1
+quest_name = "Explore"
+quest_objective = Array[String](["Explore for a bit"])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Scene"]
+stream = ExtResource("11_4y38v")
+volume_db = -1.0
+autoplay = true
+
+[node name="Score_UI" parent="." instance=ExtResource("12_kw05i")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hhqc3")
+}

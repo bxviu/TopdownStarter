@@ -10,6 +10,7 @@ var linear = true
 var playerAttacks = false
 var playerDash = false
 
+signal interacted_with(object)
 signal quest_progress(quest_name, progress)
 signal quest_finish(quest_name)
 

@@ -2,14 +2,14 @@ extends Control
 
 # Array of narrative text blocks
 var narrative_texts = [
-	"In Ashwell's essay. 'A Bestiary of Player Agency,'  they explore 16 types of player agency.",
-	"The agencies of Protagonism, Big Decisions, Exploratory, Weak interactive, Aesthetic, Reflective choices, Grasp, Velocity, Challenge, Tactics and strategy, Meta, Possibility, Focus, Identity, Creative, and Negative agency.",
- 	"This interactive game will provide examples for all of them, starting with...",
+	"Exploratory agency is the freedom to roam and discover. It relies on a player’s ability to move through a space, take their time, and encounter things worth observing. This type of agency doesn’t require altering the environment—just the act of navigation and discovery is enough. However, exploration must feel purposeful; players need to understand where they’re going and how the layout connects. Random or arbitrary navigation undermines the experience.",
+	"For some players, exploration alone is rewarding—like uncovering every tile in Civilization before restarting. Others find exploration more engaging when tied to a purpose, such as searching for treasures, lore, or secrets. In both cases, exploratory agency enriches gameplay by fostering curiosity and the joy of discovery.",
+	"The next area will be an example of exploratory agency. There is not really a goal other than to walk around. Now back to the story!",
+	"You left the building after giving Joe his coins and answering his ultimatum. Now onto your daily walk!"
 ]
 
 # Current text index
 var current_text_index = 0
-var goToNext = false
 
 # Reference to the Label node
 @onready var narrative_label = $InfoLabel
@@ -42,15 +42,9 @@ func show_next_text():
 		
 		# Update continue label visibility
 		update_continue_label()
-	elif goToNext:
-		on_narrative_complete()
 	else:
 		# Narrative is complete
-		big.show()
-		title.hide()
-		narrative_label.hide()
-		#on_narrative_complete()
-		goToNext = true
+		on_narrative_complete()
 
 func update_continue_label():
 	# Show/hide continue hint based on remaining text
@@ -59,4 +53,7 @@ func update_continue_label():
 func on_narrative_complete():
 	# What to do when narrative ends
 	# For example, change to next scene
-	get_tree().change_scene_to_file("res://Scenes/Levels/Protaganism/Protaganism.tscn")
+	#GameManager.current_level = -3
+	#GameManager.selected_level = -2
+	#get_tree().change_scene_to_file("res://Scenes/Levels/LevelSelect.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/Exploratory/Exploratory.tscn")

@@ -67,5 +67,7 @@ func enter_level():
 	match selected_level:
 		-2:
 			get_tree().change_scene_to_file("res://Scenes/Levels/Big Decision/BigDecision.tscn")
+		-1:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Exploratory/ExploratoryInfo.tscn")
 
 		
