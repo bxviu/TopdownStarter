@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/Levels/Tactics/TacticsInfo.gd" id="1_oitgh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rtf74"]
-font_size = 66
+font_size = 56
 
 [sub_resource type="LabelSettings" id="LabelSettings_r400j"]
 font_size = 101
@@ -15,11 +15,11 @@ script = ExtResource("1_oitgh")
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_left = 65.0
+offset_left = 3.0
 offset_top = 4.0
-offset_right = 556.0
+offset_right = 641.0
 offset_bottom = 95.0
-text = "Challenge"
+text = "Tactics and Strategy"
 label_settings = SubResource("LabelSettings_rtf74")
 horizontal_alignment = 1
 

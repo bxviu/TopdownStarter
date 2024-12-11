@@ -7,6 +7,7 @@ var narrative_texts = [
 	"In some cases, the sense of challenge is artificially constructed through increasing stats or memorizing levels. This gives the illusion of improving skills without substantial change in gameplay. The process of mastery in games is often easier compared to real-world skills, making games a more accessible outlet for those seeking the satisfaction of learning.",	
 	"People tend to feel more invested in progress that is earned through overcoming challenges rather than being given for free. While some players enjoy challenge for its own sake, others prefer it to be tied to meaningful motivations, or may not care for challenge at all. Ultimately, while challenge is an essential part of many games, it’s not the defining factor that makes a game a game.",	
 	"The level you just completed should have been a challenge. In previous levels, you could easily run through it and go to the exit door. In this level, it wasn't so trivial as you had to open the door first. Additionally, a bunch of enemies were trying to prevent you from completing your objective of unlocking the door, requiring you to have mastered the dashing system to dodge their attacks.",	
+	"Back to the story, you are about to reach the portal summoning all the monsters. You must break it with your fists and kicks!"
 ]
 
 # Current text index

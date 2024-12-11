@@ -4,6 +4,7 @@ var interacted = []
 var doorOpened = false
 @onready var exit = $Scene/AreaExit
 @onready var player = $Player
+@onready var quest = $Scene/Quests/QuestUpdate3
 @onready var damageTowers = $DamageTowers
 @onready var damageBoostTowers = $DamageBoostTowers
 @onready var healingTowers = $HealingTowers
@@ -13,11 +14,13 @@ var doorOpened = false
 func _ready() -> void:
 	GameManager.playerDash = true
 	GameManager.playerAttacks = true
-	for child in damageTowers.get_children():
-		child.hide()
+	GameManager.connect("died", Callable(self, "on_spawner_killed"))
 	speedBoostTower.hide()
 	var collision_shape = speedBoostTower.get_node("AnimatedSprite2D/Hitboxes/area_hitbox/hitboxShape")
 	collision_shape.disabled = true 
+	for child in damageTowers.get_children():
+		child.hide()
+		child.position.x -= 500
 	for child in healingTowers.get_children():
 		child.hide()
 		collision_shape = child.get_node("AnimatedSprite2D/Hitboxes/area_hitbox/hitboxShape")  # Adjust path if necessary
@@ -32,9 +35,15 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if interacted.size() == 3 and !doorOpened:
-		doorOpened = true
-		exit.position.y = -47
+	pass
+	
+func on_spawner_killed(display_name):
+	match display_name:
+		"Spawner":
+			doorOpened = true
+			exit.position.y = -624
+			quest.position.x = 388
+			print('next')
 	pass
 	
 func _on_touch_zone_interacted(display_name) -> void:
@@ -44,6 +53,7 @@ func _on_touch_zone_interacted(display_name) -> void:
 		interacted.append(display_name)
 		for child in damageTowers.get_children():
 			child.show()
+			child.position.x += 500
 	else:
 		label.text = "Already Activated"  # Set the text
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

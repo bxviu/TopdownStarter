@@ -371,7 +371,6 @@ script = ExtResource("1_grw48")
 sprite = NodePath("AnimatedSprite2D")
 healthbar = NodePath("ProgressBar")
 health = 100
-flipped_horizontal = null
 hit_particles = NodePath("AnimatedSprite2D/HitParticles")
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]

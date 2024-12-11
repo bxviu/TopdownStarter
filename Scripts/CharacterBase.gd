@@ -6,6 +6,7 @@ class_name CharacterBase
 @export var health : int
 @export var flipped_horizontal : bool
 @export var hit_particles : GPUParticles2D
+@export var display :String = "Enemy"
 var invincible : bool = false
 var is_dead : bool = false
 
@@ -64,7 +65,8 @@ func _take_damage(amount):
 func _die():
 	if(is_dead):
 		return
-		
+	
+	GameManager.emit_signal("died", display)
 	is_dead = true
 	#Remove/destroy this character once it's able to do so unless its the player
 	await get_tree().create_timer(1.0).timeout
