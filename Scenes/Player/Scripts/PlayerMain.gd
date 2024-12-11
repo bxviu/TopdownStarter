@@ -19,7 +19,7 @@ func _die():
 func _process(delta):
 	super(delta)
 	# Get all overlapping bodies
-	var overlapping_bodies = hitbox.get_overlapping_bodies()
+	var overlapping_bodies = hitbox.get_overlapping_areas()
 	#print(overlapping_bodies)
 	for body in overlapping_bodies:
 		if !blockHealing and body.is_in_group("Healing"):
