@@ -10,10 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Topdown Starter"
+config/name="CMPM 80J Final"
 config/description="This 2D Pixelart, TopDown action Starter Project include all the basics you need to get started creating a game."
 config/version="1.5"
-config/tags=PackedStringArray("starterkit")
 run/main_scene="res://Scenes/Levels/StartScreen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/image="res://Art/Icons/icon.png"

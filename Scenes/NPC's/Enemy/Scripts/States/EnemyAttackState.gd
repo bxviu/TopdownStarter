@@ -17,7 +17,7 @@ func _on_hit_box_body_entered(body):
 		deal_damage_to_player(body)
 
 #Connect and deal damage to the player
-func deal_damage_to_player(player : PlayerMain):
+func deal_damage_to_player(player):
 	hit_particles.emitting = true
 	player._take_damage(attack.damage)
 	
