@@ -16,7 +16,6 @@ script = ExtResource("1_786pk")
 [node name="ColorPickerButton" type="ColorPickerButton" parent="."]
 process_mode = 3
 z_index = 2
-layout_mode = 0
 offset_left = 189.0
 offset_top = 106.0
 offset_right = 463.0
@@ -36,7 +35,6 @@ label_settings = SubResource("LabelSettings_sv5ff")
 [node name="ConfirmButton" type="Button" parent="."]
 process_mode = 3
 z_index = 2
-layout_mode = 0
 offset_left = 466.0
 offset_top = 281.0
 offset_right = 601.0
@@ -44,7 +42,6 @@ offset_bottom = 338.0
 text = "Confirm"
 
 [node name="InfoLabel" type="Label" parent="."]
-layout_mode = 0
 offset_left = 17.0
 offset_top = 129.0
 offset_right = 176.0
@@ -57,7 +54,6 @@ autowrap_mode = 2
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 z_index = -1
-layout_mode = 0
 offset_left = -75.0
 offset_top = -52.0
 offset_right = 712.0
