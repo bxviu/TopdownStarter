@@ -9,6 +9,8 @@ var dash_direction := Vector2(0,0)
 
 var player : CharacterBody2D
 @export var animator : AnimationPlayer
+@onready var hitbox = $"../../BodyCollisionShape/Area2D"
+var speed = false
 
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
@@ -25,6 +27,22 @@ func Update(delta : float):
 	if (GameManager.playerAttacks):
 		if (Input.is_action_just_pressed("Punch") or Input.is_action_just_pressed("Kick")):
 			Transition("Attacking")
+			
+func _process(delta):
+	# Get all overlapping bodies
+	var overlapping_bodies = hitbox.get_overlapping_areas()
+
+	#print(overlapping_bodies)
+	speed = false
+	for body in overlapping_bodies:
+		if body.is_in_group("SpeedBoost"):
+			speed = true
+			#print("Target is inside the hitbox!")
+			break
+	if speed:
+		movespeed = 280
+	else:
+		movespeed = 140
 	
 func Move(input_dir : Vector2):
 	#Suddenly turning mid dash
