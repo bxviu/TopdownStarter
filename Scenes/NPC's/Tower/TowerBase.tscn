@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://bunnpmn3orp7m" path="res://Scenes/Player/Sprite/Player_walk2.png" id="23_nnq25"]
 [ext_resource type="PackedScene" uid="uid://b82yimbxiflml" path="res://Art/Particles/hit_particles.tscn" id="24_b3i6u"]
 [ext_resource type="Script" path="res://Scripts/FSM/FiniteStateMachine.gd" id="25_pice1"]
+[ext_resource type="Texture2D" uid="uid://gjq1wepwn3jr" path="res://Art/Sprites/SignPost02a.png" id="25_u04tm"]
 [ext_resource type="Script" path="res://Scenes/NPC's/Tower/Scripts/States/TowerIdleState.gd" id="27_jmurj"]
 [ext_resource type="Script" path="res://Scripts/AttackData.gd" id="28_11hu1"]
 [ext_resource type="Script" path="res://Scenes/NPC's/Tower/Scripts/States/TowerAttackState.gd" id="28_j2nho"]
@@ -136,8 +137,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tm8fg"]
 radius = 73.0069
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_awt2a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7m131"]
 radius = 25.0
@@ -394,11 +393,12 @@ shape = SubResource("CircleShape2D_tm8fg")
 disabled = true
 
 [node name="TextureRect" type="TextureRect" parent="AnimatedSprite2D"]
+modulate = Color(0.517184, 0.517184, 0.517184, 1)
 offset_left = -20.0
 offset_top = -19.0
 offset_right = 20.0
 offset_bottom = 21.0
-texture = SubResource("PlaceholderTexture2D_awt2a")
+texture = ExtResource("25_u04tm")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7m131")

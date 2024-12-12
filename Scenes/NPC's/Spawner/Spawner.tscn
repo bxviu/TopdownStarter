@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bt0ajcbx37jeu"]
+[gd_scene load_steps=41 format=3 uid="uid://bt0ajcbx37jeu"]
 
 [ext_resource type="Script" path="res://Scenes/NPC's/Spawner/Scripts/SpawnerMain.gd" id="1_faqut"]
 [ext_resource type="Texture2D" uid="uid://d3u5e5gpffpwe" path="res://Scenes/NPC's/Enemy/Sprites/Enemy09.png" id="2_k5136"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://wrtjha73ctxn" path="res://Scenes/NPC's/Enemy/Sprites/Enemy06.png" id="19_lru0g"]
 [ext_resource type="Texture2D" uid="uid://cjckvbu5dwn7e" path="res://Scenes/NPC's/Enemy/Sprites/Enemy07.png" id="20_ii0lw"]
 [ext_resource type="PackedScene" uid="uid://b82yimbxiflml" path="res://Art/Particles/hit_particles.tscn" id="21_b3ofg"]
+[ext_resource type="Texture2D" uid="uid://glpftwrnbm05" path="res://Art/Sprites/Rock01a.png" id="23_cpecx"]
 [ext_resource type="Texture2D" uid="uid://bw36ig60cpuaq" path="res://Art/Sprites/Square.png" id="28_olov2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_toimg"]
@@ -115,6 +116,7 @@ cull_mode = 2
 polygon = PackedVector2Array(3, -8, 6.5, -4, 7.5, 3.5, 4.5, 10, -1.5, 10.5, -6, 4, -4.5, -6, -1, -8.5)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_1rs0o"]
+diffuse_texture = ExtResource("23_cpecx")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4mbmt"]
 radius = 7.0
@@ -325,11 +327,11 @@ disabled = true
 occluder = SubResource("OccluderPolygon2D_e04wa")
 
 [node name="TextureRect" type="TextureRect" parent="AnimatedSprite2D"]
-modulate = Color(0, 0.764642, 0.61397, 1)
+modulate = Color(0.389287, 0.389287, 0.389287, 1)
 offset_left = -13.0
-offset_top = -16.5
-offset_right = 27.0
-offset_bottom = 23.5
+offset_top = -17.0
+offset_right = 33.0
+offset_bottom = 23.0
 scale = Vector2(0.657239, 0.827506)
 texture = SubResource("CanvasTexture_1rs0o")
 

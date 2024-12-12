@@ -6,6 +6,7 @@ var narrative_texts = [
 	"Compelling focus choices involve selecting between interesting alternatives, rather than simple this-or-nothing scenarios. Focus choice is denied when a game forces players to engage with aspects they aren’t interested in or heavily favors one option, limiting genuine choice.",
 	"Players can achieve focus agency by selecting games that align with their preferred aspects. While some games struggle with variable focus, sandbox and multiplayer games often excel, offering a more flexible and satisfactory gaming experience.",
 	"An example of focus agency in this game is that there were multiple ways to achieve the goal of getting 100 coins. You could choose to focus on talking to NPCs, defeat monsters, or gather materials. Or you could've done a mixture of them.",
+	"Back to the story, it turns out all the monsters you escaped from earlier are coming back with a vengeance! Good thing you gathered coins. You can build some defenses now!"
 ]
 
 # Current text index

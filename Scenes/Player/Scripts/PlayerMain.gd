@@ -19,15 +19,15 @@ func _die():
 
 func _process(delta):
 	super(delta)
-	spritedisplay.modulate = GameManager.playerColor
+	sprite.modulate = GameManager.playerColor
 	# Get all overlapping bodies
 	var overlapping_bodies = hitbox.get_overlapping_areas()
 	#print(overlapping_bodies)
 	for body in overlapping_bodies:
-		if !blockHealing and body.is_in_group("Healing"):
+		if is_instance_valid(body) and !blockHealing and body.is_in_group("Healing"):
 			#print("Target is inside the hitbox!")
 			if self.health < self.healthbar.max_value:
-				self.health += 3
+				self.health += 15
 				self.healthbar.value = self.health;
 			blockHealing = true
 			await get_tree().create_timer(0.5).timeout

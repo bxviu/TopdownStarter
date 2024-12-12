@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://1f765f0dmf76" path="res://Scenes/Player/Sprite/Player_walk1.png" id="22_q51gw"]
 [ext_resource type="Texture2D" uid="uid://bunnpmn3orp7m" path="res://Scenes/Player/Sprite/Player_walk2.png" id="23_wbisr"]
 [ext_resource type="PackedScene" uid="uid://b82yimbxiflml" path="res://Art/Particles/hit_particles.tscn" id="24_g8lk6"]
+[ext_resource type="Texture2D" uid="uid://gjq1wepwn3jr" path="res://Art/Sprites/SignPost02a.png" id="25_30ytn"]
 [ext_resource type="Texture2D" uid="uid://dyb5iqfj3tmwj" path="res://Art/Sprites/light.png" id="25_tybkc"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uky13"]
@@ -130,8 +131,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tm8fg"]
 radius = 347.013
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_awt2a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7m131"]
 radius = 25.0
@@ -387,12 +386,12 @@ rotation = 0.0
 shape = SubResource("CircleShape2D_tm8fg")
 
 [node name="TextureRect" type="TextureRect" parent="AnimatedSprite2D"]
-modulate = Color(0.886453, 0.733929, 0.852815, 1)
+modulate = Color(0, 0.349139, 0.603704, 1)
 offset_left = -20.0
 offset_top = -19.0
 offset_right = 20.0
 offset_bottom = 21.0
-texture = SubResource("PlaceholderTexture2D_awt2a")
+texture = ExtResource("25_30ytn")
 
 [node name="BodyCollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7m131")

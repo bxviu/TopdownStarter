@@ -29,6 +29,6 @@ Press:
 or
 'Escape' to quit
 or
-'E' to return to first level"
+'E' to go back to start screen"
 label_settings = ExtResource("2_k8myw")
 horizontal_alignment = 1

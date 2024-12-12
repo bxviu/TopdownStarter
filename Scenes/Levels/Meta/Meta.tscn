@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://2h6nmijw5d3a"]
+[gd_scene load_steps=16 format=4 uid="uid://2h6nmijw5d3a"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Meta/Meta.gd" id="1_shfjb"]
 [ext_resource type="PackedScene" uid="uid://bvg5dny32iw0x" path="res://Scenes/Player/Player.tscn" id="2_xjv70"]
 [ext_resource type="PackedScene" uid="uid://cx8kkqawojm0m" path="res://Scenes/Misc/SceneSettings.tscn" id="5_i110n"]
 [ext_resource type="Texture2D" uid="uid://dyb5iqfj3tmwj" path="res://Art/Sprites/light.png" id="7_q6hfb"]
 [ext_resource type="TileSet" uid="uid://b3n0bklwwny1b" path="res://Art/TileMap.tres" id="8_2mvq2"]
+[ext_resource type="PackedScene" uid="uid://2hraph0u2hyv" path="res://Scenes/NPC's/BigRangeEnemy/BigRangeEnemy.tscn" id="9_53ghe"]
 [ext_resource type="PackedScene" uid="uid://bt0ajcbx37jeu" path="res://Scenes/NPC's/Spawner/Spawner.tscn" id="9_h1m0n"]
 [ext_resource type="PackedScene" uid="uid://48vtm5vekhaq" path="res://Scenes/QuestUpdate.tscn" id="9_susbt"]
 [ext_resource type="Script" path="res://Scripts/QuestGeneral/Quest.gd" id="10_fp8ws"]
@@ -101,6 +102,7 @@ quest_objective = Array[String](["All the remaining monsters have gathered and a
 
 [node name="Spawner" parent="Scene/Quests" node_paths=PackedStringArray("parent") instance=ExtResource("9_h1m0n")]
 position = Vector2(-112, -358)
+enemy_scene = ExtResource("9_53ghe")
 spawn_area = Rect2(-113, -266, 10, 10)
 max_spawns = 150
 parent = NodePath("../../../NPCs")

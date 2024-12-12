@@ -31,6 +31,8 @@ func _input(event):
 		selected_level -= 1
 		current_level -= 1
 		update_level_display()
+	elif event.is_action_pressed('accept'):
+		enter_level()
 	update_manager_levels()
 
 func update_manager_levels():
@@ -65,9 +67,17 @@ func update_level_display():
 
 func enter_level():
 	match selected_level:
+		-3:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Protaganism/Protaganism.tscn")
 		-2:
 			get_tree().change_scene_to_file("res://Scenes/Levels/Big Decision/BigDecision.tscn")
 		-1:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Exploratory/ExploratoryInfo.tscn")
+		0:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Exploratory/ExploratoryInfo.tscn")
+		1:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Exploratory/ExploratoryInfo.tscn")
+		2:
 			get_tree().change_scene_to_file("res://Scenes/Levels/Exploratory/ExploratoryInfo.tscn")
 		3:
 			get_tree().change_scene_to_file("res://Scenes/Levels/Grasp/Grasp.tscn")
@@ -81,5 +91,13 @@ func enter_level():
 			get_tree().change_scene_to_file("res://Scenes/Levels/Meta/Meta.tscn")
 		8:
 			get_tree().change_scene_to_file("res://Scenes/Levels/Possibility/Possibility.tscn")
+		9:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Possibility/Possibility.tscn")
+		10:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Possibility/Possibility.tscn")
+		11:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Creative/Creative.tscn")
+		12:
+			get_tree().change_scene_to_file("res://Scenes/Levels/Creative/Creative.tscn")
 
 		

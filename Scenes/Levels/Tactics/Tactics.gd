@@ -37,7 +37,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 	
-func on_spawner_killed(display_name):
+func on_spawner_killed(display_name, position):
 	match display_name:
 		"Spawner":
 			doorOpened = true

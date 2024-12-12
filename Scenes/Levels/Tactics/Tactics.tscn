@@ -211,6 +211,7 @@ position = Vector2(586, 145)
 z_index = 2
 position = Vector2(388, -14)
 spawn_interval = 4.0
+spawn_area = Rect2(388, -14, 200, 200)
 max_spawns = 50
 parent = NodePath("../NPCs")
 health = 750

@@ -6,7 +6,7 @@ var narrative_texts = [
 	"The sense of possibility is crucial in both games and static fiction, like Tolkien's works. It's about the unknown options or outcomes to be discovered, and the confidence that finding them is possible. This sense can be sustained by having a lot of content or skillful design.",	
 	"As players learn more about a game, their sense of possibility tends to decrease. Mastery can confine players to best practices, making experimentation less necessary. For some players, possibility is a challenge to overcome, while others value exploration and discovery.",	
 	"Players have different priorities. Some prefer using walkthroughs to ensure they don't miss anything, similar to using a guidebook in a new city. Others value exploration and feel that being told where to go would ruin the experience. Player preferences shape how they engage with possibility in games.",	
-	"Now, you have transported your character to a new area. This is an example of exploratory agency as there are many things to see and explore! In this new area, there are 4 other agencies that you must find.",	
+	"Now, you have transported your character to a new area. This is an example of exploratory agency as there are many things to see and explore! In this new area, there are 2 other agencies that you must find.",	
 ]
 
 # Current text index
@@ -22,6 +22,7 @@ func _ready():
 	title.modulate = GameManager.textColor
 	narrative_label.modulate = GameManager.textColor
 	continue_label.modulate = GameManager.textColor
+	GameManager.money = 0
 	# Show first text block
 	show_next_text()
 	

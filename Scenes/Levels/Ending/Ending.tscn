@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv3qu4uc1df7l"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Ending/Ending.gd" id="1_1f6uw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtf74"]
+font_size = 66
+
+[sub_resource type="LabelSettings" id="LabelSettings_r400j"]
+font_size = 101
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_1f6uw")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 5.0
+offset_right = 567.0
+offset_bottom = 96.0
+text = "Ending"
+label_settings = SubResource("LabelSettings_rtf74")
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 96.0
+offset_right = 625.0
+offset_bottom = 327.0
+autowrap_mode = 2
+
+[node name="ContinueLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 334.0
+offset_right = 423.0
+offset_bottom = 357.0
+text = "Click to continue"
+horizontal_alignment = 1
+
+[node name="BigText" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = 111.0
+offset_right = 926.0
+offset_bottom = 338.0
+text = "Protagonism"
+label_settings = SubResource("LabelSettings_r400j")

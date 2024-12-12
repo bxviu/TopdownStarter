@@ -67,3 +67,10 @@ func _on_popup_closed():
 	get_tree().paused = false
 	active_popup.queue_free()
 	active_popup = null
+	
+func _input(event): 
+	if event is InputEventKey and event.is_action_pressed("Escape"):
+		if (!linear):
+			get_tree().change_scene_to_file("res://Scenes/Levels/LevelSelect.tscn")
+		else:
+			load_same_level()

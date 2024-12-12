@@ -24,7 +24,8 @@ func _on_spawn_timer_timeout():
 		spawn_enemy()
 		_spawn_count += 1
 	else:
-		_spawn_timer.stop()  # Stop the timer when the limit is reached
+		pass
+		#_spawn_timer.stop()  # Stop the timer when the limit is reached
 
 func spawn_enemy():
 	if not enemy_scene:

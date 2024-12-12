@@ -7,7 +7,7 @@ func _ready() -> void:
 	GameManager.connect("interacted_with", Callable(self, "_on_interacted_with"))
 	GameManager.playerDash = true
 	GameManager.playerAttacks = true
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(20).timeout
 	continue_dialogue()
 	pass # Replace with function body.
 
