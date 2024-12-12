@@ -350,8 +350,9 @@ offset_bottom = 17.5
 rotation = -1.57079
 theme_override_styles/background = SubResource("StyleBoxFlat_x6b3o")
 theme_override_styles/fill = SubResource("StyleBoxFlat_w435t")
+max_value = 750.0
 step = 1.0
-value = 51.0
+value = 750.0
 fill_mode = 2
 show_percentage = false
 
