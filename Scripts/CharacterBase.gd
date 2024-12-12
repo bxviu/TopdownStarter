@@ -66,7 +66,7 @@ func _die():
 	if(is_dead):
 		return
 	
-	GameManager.emit_signal("died", display)
+	GameManager.emit_signal("died", display, position)
 	is_dead = true
 	#Remove/destroy this character once it's able to do so unless its the player
 	await get_tree().create_timer(1.0).timeout

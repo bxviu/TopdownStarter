@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3hhv2kpibb4t"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Identity/PlayerColorChanger.gd" id="1_ym63u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sv5ff"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sgm28"]
+font_size = 36
+
+[node name="PlayerColorChanger" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ym63u")
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="."]
+process_mode = 3
+z_index = 2
+layout_mode = 0
+offset_left = 23.0
+offset_top = 115.0
+offset_right = 246.0
+offset_bottom = 267.0
+color = Color(1, 1, 1, 1)
+
+[node name="Label" type="Label" parent="ColorPickerButton"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 17.0
+offset_top = 64.0
+offset_right = 211.0
+offset_bottom = 87.0
+text = "Click to change player color"
+label_settings = SubResource("LabelSettings_sv5ff")
+
+[node name="ConfirmButton" type="Button" parent="."]
+process_mode = 3
+z_index = 2
+layout_mode = 0
+offset_left = 466.0
+offset_top = 281.0
+offset_right = 601.0
+offset_bottom = 338.0
+text = "Confirm"
+
+[node name="InfoLabel" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 17.0
+offset_top = 129.0
+offset_right = 176.0
+offset_bottom = 232.0
+text = "Example Text"
+label_settings = SubResource("LabelSettings_sgm28")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_left = -75.0
+offset_top = -52.0
+offset_right = 712.0
+offset_bottom = 414.0
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="ConfirmButton" to="." method="_on_confirm_button_pressed"]

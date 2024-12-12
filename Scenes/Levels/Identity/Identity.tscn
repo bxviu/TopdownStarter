@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://c47mnnkebcu80"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Identity/Identity.gd" id="1_50l1f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtf74"]
+font_size = 66
+
+[node name="Identity" type="Control"]
+process_mode = 3
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_50l1f")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 2.0
+offset_right = 595.0
+offset_bottom = 93.0
+text = "Aesthetic"
+label_settings = SubResource("LabelSettings_rtf74")
+horizontal_alignment = 1
+
+[node name="InfoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 96.0
+offset_right = 625.0
+offset_bottom = 327.0
+autowrap_mode = 2
+
+[node name="ContinueLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 334.0
+offset_right = 423.0
+offset_bottom = 357.0
+text = "Click to continue"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -75.0
+offset_top = -52.0
+offset_right = 712.0
+offset_bottom = 414.0
+color = Color(0, 0, 0, 1)

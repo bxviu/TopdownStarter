@@ -4,6 +4,7 @@ class_name PlayerMain
 @onready var fsm = $FSM as FiniteStateMachine
 const DEATH_SCREEN = preload("res://Scenes/Misc/DeathScreen.tscn")
 @onready var hitbox = $BodyCollisionShape/Area2D
+@onready var spritedisplay = $AnimatedSprite2D
 
 var blockHealing = false
 #All of our logic is either in the CharacterBase class
@@ -18,6 +19,7 @@ func _die():
 
 func _process(delta):
 	super(delta)
+	spritedisplay.modulate = GameManager.playerColor
 	# Get all overlapping bodies
 	var overlapping_bodies = hitbox.get_overlapping_areas()
 	#print(overlapping_bodies)

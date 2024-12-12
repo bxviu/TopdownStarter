@@ -11,14 +11,15 @@ var selected_level = LEVELOFFSET
 var current_level = LEVELOFFSET
 var linear = true
 
-var textColor = Color(255,255,0)
-#var textColor = Color(255,255,255)
+#var textColor = Color(255,255,0)
+var textColor = Color(255,255,255)
+var playerColor = Color(1,1,1,1)
 
 var playerAttacks = false
 var playerDash = false
 
 signal interacted_with(object)
-signal died(object)
+signal died(object, location)
 signal quest_progress(quest_name, progress)
 signal quest_finish(quest_name)
 
