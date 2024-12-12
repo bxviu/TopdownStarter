@@ -2,13 +2,13 @@ extends Node2D
 
 var focusShown = false
 var identityShown = false
-var creativeShown = false
-var negativeShown = false
-var endingLevel = false
+var endLevel = false
 @onready var player = $Player
 @onready var appleMan = $NPCs/NPC
 @onready var hungryMan = $NPCs/NPC3
 @onready var specialApple = $NPCs/NPC3/TouchZone2
+@onready var finishQuest = $QuestFinish
+@onready var artistQuest = $QuestStart
 @export var coin: PackedScene   # Drag and drop your enemy scene here in the Inspector
 var appleManTalked = false
 var hungryManTalked = false
@@ -26,31 +26,41 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !focusShown && GameManager.money >= 100:
+		focusShown = true
+		finishQuest.position = player.position
+		await get_tree().create_timer(3).timeout
+		artistQuest.position = player.position
+	if !endLevel and focusShown and identityShown:
+		endLevel = true
+		await get_tree().create_timer(3).timeout
+		get_tree().change_scene_to_file("res://Scenes/Levels/Focus/Focus.tscn")
 	pass
 
 func _on_killed(display_name, position):
 	print(display_name, position)
 	match display_name:
 		"Enemy":
-			spawn_coin(position)
+			spawn_coins(position, int(randf_range(3, 5)))
+		"Tree":
+			spawn_coins(position, int(randf_range(2, 3)))
 	pass
 	
-func spawn_coin(position):
+func spawn_coins(position, amount):
 	if not coin:
-		print("Enemy scene not set!")
+		print("Coin scene not set!")
 		return
-	var coin_instance = coin.instantiate()
-	var coin_instance2 = coin.instantiate()
-	var coin_instance3 = coin.instantiate()
-	var coin_instance4 = coin.instantiate()
-	coin_instance.position = position
-	coin_instance2.position = Vector2(position.x+2, position.y)
-	coin_instance3.position = Vector2(position.x+2, position.y-2)
-	coin_instance4.position = Vector2(position.x+1, position.y-1)
-	add_child(coin_instance)
-	add_child(coin_instance2)
-	add_child(coin_instance3)
-	add_child(coin_instance4)
+
+	for i in range(amount):
+		var coin_instance = coin.instantiate()
+		# Randomize the coin position slightly around the original position
+		var random_offset = Vector2(
+			randf_range(-2, 2), # Adjust range as needed
+			randf_range(-2, 2)  # Adjust range as needed
+		)
+		coin_instance.position = position + random_offset
+		add_child(coin_instance)
+
 	# Add the enemy to the scene
 	#spawnParent.add_child(enemy_instance)
 
